@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+@theme {
+  --font-main: var(--font-vietnam-pro);
+  --font-secondary: var(--font-raleway);
+}
