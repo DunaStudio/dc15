@@ -38,7 +38,7 @@ export default function Navbar() {
 
       <button
         onClick={toggleLanguage}
-        className="bg-white text-gray-700 hover:text-blue-600 hover:bg-gray-50 px-4 py-2 rounded-full font-medium transition-all duration-200 border border-gray-200"
+        className="bg-white text-gray-700 hover:text-blue-600 hover:bg-gray-50 px-5 py-4 rounded-full font-medium transition-all duration-200 border border-gray-200"
       >
         {currentLanguage}
       </button>
