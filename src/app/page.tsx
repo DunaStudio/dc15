@@ -1,7 +1,4 @@
-import Image from "next/image";
-import Navbar from "./components/Navbar";
 import HeroSection from "./sections/HeroSection";
-import RuedaImg from "@/assets/rueda.png";
 
 export default function Home() {
   return (
