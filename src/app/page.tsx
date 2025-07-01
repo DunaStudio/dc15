@@ -1,5 +1,5 @@
 import HeroSection from "./sections/HeroSection";
-import TypeOfSection from "./sections/TypeOfSection";
+import AboutSection from "./sections/AboutSection";
 import EngineeringSection from "./sections/EngineeringSection";
 
 export default function Home() {
@@ -7,7 +7,7 @@ export default function Home() {
     <div className="min-h-screen flex justify-center flex-col">
       <HeroSection />
       <EngineeringSection />
-      <TypeOfSection />
+      <AboutSection />
 
       <div className="flex flex-col justify-center items-center min-h-screen w-full bg-blue-600 text-white">
         <p>otra seccion meganashe</p>
