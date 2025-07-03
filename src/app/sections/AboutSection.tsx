@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { gsap } from "gsap";
 
 const storySteps = [
   {
@@ -49,8 +50,53 @@ const storySteps = [
 
 export default function AboutSection() {
   const [activeStep, setActiveStep] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const counterRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLHeadingElement>(null);
+  const textRef = useRef<HTMLParagraphElement>(null);
+  const timelineRef = useRef<gsap.core.Timeline | null>(null);
+
+  const animateContent = (direction: "in" | "out" = "in") => {
+    if (!contentRef.current) return;
+
+    // Kill any existing timeline
+    if (timelineRef.current) {
+      timelineRef.current.kill();
+    }
+
+    const elements = [
+      counterRef.current,
+      titleRef.current,
+      subtitleRef.current,
+      textRef.current,
+    ];
+
+    if (direction === "out") {
+      // Animate out
+      timelineRef.current = gsap.timeline();
+      timelineRef.current.to(elements, {
+        opacity: 0,
+        y: -20,
+        duration: 0.3,
+        stagger: 0.05,
+        ease: "power2.inOut",
+      });
+    } else {
+      // Animate in
+      gsap.set(elements, { opacity: 0, y: 30 });
+
+      timelineRef.current = gsap.timeline();
+      timelineRef.current.to(elements, {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: "power2.out",
+      });
+    }
+  };
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -72,14 +118,8 @@ export default function AboutSection() {
           storySteps.length - 1
         );
 
-        if (newStep !== activeStep && !isAnimating) {
-          setIsAnimating(true);
+        if (newStep !== activeStep) {
           setActiveStep(newStep);
-
-          // Reset animation state after animation completes
-          setTimeout(() => {
-            setIsAnimating(false);
-          }, 1000);
         }
       }
     };
@@ -90,14 +130,24 @@ export default function AboutSection() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [activeStep, isAnimating]);
+  }, [activeStep]);
+
+  // Animate content when activeStep changes
+  useEffect(() => {
+    animateContent("in");
+  }, [activeStep]);
+
+  // Initial animation
+  useEffect(() => {
+    animateContent("in");
+  }, []);
 
   return (
     <div ref={sectionRef} className="min-h-[600vh] relative bg-white">
       <div className="sticky top-0 h-screen flex items-center justify-center">
         <div className="max-w-4xl mx-auto px-8 w-full">
           {/* Progress indicator */}
-          <div className="absolute top-8 right-8 z-10">
+          <div className="absolute top-1/2 right-8 z-10 transform -translate-y-1/2">
             <div className="flex flex-col space-y-2">
               {storySteps.map((_, index) => (
                 <div
@@ -113,15 +163,11 @@ export default function AboutSection() {
           </div>
 
           {/* Main content */}
-          <div className="text-center space-y-8">
+          <div ref={contentRef} className="text-center space-y-8">
             {/* Step counter */}
             <div
-              className={`text-sm text-gray-400 font-light tracking-widest transition-all duration-800 ease-out  ${
-                isAnimating
-                  ? "opacity-0 transform translate-y-4"
-                  : "opacity-100 transform translate-y-0"
-              }`}
-              style={{ transitionDelay: "0ms" }}
+              ref={counterRef}
+              className="text-sm text-gray-400 font-light tracking-widest"
             >
               {String(activeStep + 1).padStart(2, "0")} /{" "}
               {String(storySteps.length).padStart(2, "0")}
@@ -130,22 +176,14 @@ export default function AboutSection() {
             {/* Title */}
             <div className="space-y-4">
               <h1
-                className={`text-5xl md:text-6xl font-light text-black transition-all duration-900 ease-out ${
-                  isAnimating
-                    ? "opacity-0 transform translate-y-8"
-                    : "opacity-100 transform translate-y-0"
-                }`}
-                style={{ transitionDelay: "100ms" }}
+                ref={titleRef}
+                className="text-5xl md:text-6xl font-light text-[#094474]"
               >
                 {storySteps[activeStep].title}
               </h1>
               <h2
-                className={`text-xl md:text-2xl text-gray-600 font-light transition-all duration-900 ease-out ${
-                  isAnimating
-                    ? "opacity-0 transform translate-y-8"
-                    : "opacity-100 transform translate-y-0"
-                }`}
-                style={{ transitionDelay: "200ms" }}
+                ref={subtitleRef}
+                className="text-xl md:text-2xl text-gray-600 font-light"
               >
                 {storySteps[activeStep].subtitle}
               </h2>
@@ -154,12 +192,8 @@ export default function AboutSection() {
             {/* Content */}
             <div className="max-w-2xl mx-auto space-y-6">
               <p
-                className={`text-lg text-gray-700 leading-relaxed transition-all duration-900 ease-out ${
-                  isAnimating
-                    ? "opacity-0 transform translate-y-8"
-                    : "opacity-100 transform translate-y-0"
-                }`}
-                style={{ transitionDelay: "300ms" }}
+                ref={textRef}
+                className="text-lg text-[#094474] leading-relaxed"
               >
                 {storySteps[activeStep].content}
               </p>
