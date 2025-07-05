@@ -1,17 +1,22 @@
 import HeroSection from "./sections/HeroSection";
+import CarouselSection from "./sections/CarouselSection";
 import AboutSection from "./sections/AboutSection";
-import EngineeringSection from "./sections/EngineeringSection";
+import Footer from "./components/Footer";
+import ContactSection from "./sections/ContactSection";
+import CamionetaSection from "./sections/CamionetaSection";
 
 export default function Home() {
   return (
     <div className="min-h-screen flex justify-center flex-col">
       <HeroSection />
-      <EngineeringSection />
+      <CarouselSection />
       <AboutSection />
-
-      <div className="flex flex-col justify-center items-center min-h-screen w-full bg-blue-600 text-white">
+      <div className="flex flex-col justify-center items-center min-h-screen w-full bg-[#20699B] text-white">
         <p>otra seccion meganashe</p>
       </div>
+      <CamionetaSection />
+      <ContactSection />
+      <Footer />
     </div>
   );
 }

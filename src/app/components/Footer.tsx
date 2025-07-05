@@ -1,0 +1,54 @@
+"use client";
+
+import Image from "next/image";
+import Logo from "@/assets/LogoDC15-Fondo.png";
+
+export default function Footer() {
+  return (
+    <footer className="bg-black text-white">
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-8">
+          <div className="flex flex-col gap-4">
+            <div className="flex items-center gap-4">
+              <Image
+                src={Logo || "/placeholder.svg"}
+                alt="Logo DC15"
+                width={60}
+                height={60}
+              />
+              <div className="text-sm">
+                <p>Antonino Aberastain Sur 137 Piso: 2</p>
+                <p>J5400 San Juan</p>
+                <p>info@dc15neumaticos.com</p>
+                <p>0261115-681-6162</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap gap-6 text-sm">
+            <a href="#" className="hover:text-gray-300 transition-colors">
+              Inicio
+            </a>
+            <a href="#" className="hover:text-gray-300 transition-colors">
+              Nosotros
+            </a>
+            <a href="#" className="hover:text-gray-300 transition-colors">
+              Productos
+            </a>
+            <a href="#" className="hover:text-gray-300 transition-colors">
+              Otro cosa
+            </a>
+            <a href="#" className="hover:text-gray-300 transition-colors">
+              Contacto
+            </a>
+          </div>
+        </div>
+
+        <div className="flex flex-col md:flex-row justify-between items-center mt-8 pt-4 border-t border-gray-800 text-sm">
+          <p>© 2025 DC15. Todos los derechos reservados.</p>
+          <p>Desarrollado por Duna Studio</p>
+        </div>
+      </div>
+    </footer>
+  );
+}

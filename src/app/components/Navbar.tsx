@@ -20,19 +20,19 @@ export default function Navbar() {
 
       <ul className="flex flex-row gap-6 text-gray-700 bg-white rounded-full py-4 px-8 mx-auto">
         <li className="hover:text-blue-600 cursor-pointer transition-colors">
-          Inicio
+          INICIO
         </li>
         <li className="hover:text-blue-600 cursor-pointer transition-colors">
-          Nosotros
+          NOSOTROS
         </li>
         <li className="hover:text-blue-600 cursor-pointer transition-colors">
-          Productos
+          PRODUCTOS
         </li>
         <li className="hover:text-blue-600 cursor-pointer transition-colors">
-          Contacto
+          CONTACTO
         </li>
         <li className="hover:text-blue-600 cursor-pointer transition-colors">
-          Contacto
+          ALGO MAS?
         </li>
       </ul>
 
