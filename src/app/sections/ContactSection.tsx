@@ -12,6 +12,11 @@ export default function ContactSection() {
     tipoNeumatico: "",
     comentarios: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [statusMessage, setStatusMessage] = useState({
+    type: "",
+    text: "",
+  });
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -30,8 +35,44 @@ export default function ContactSection() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setStatusMessage({ type: "", text: "" });
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatusMessage({
+          type: "success",
+          text: "¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.",
+        });
+        setFormData({
+          nombre: "",
+          apellido: "",
+          telefono: "",
+          email: "",
+          tipoNeumatico: "",
+          comentarios: "",
+        });
+      } else {
+        throw new Error("Hubo un problema al enviar el formulario.");
+      }
+    } catch (error) {
+      setStatusMessage({
+        type: "error",
+        text: "Error al enviar el mensaje. Por favor, inténtalo de nuevo.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -263,11 +304,24 @@ export default function ContactSection() {
                 />
               </div>
 
+              {statusMessage.text && (
+                <div
+                  className={`p-3 rounded-md text-sm ${
+                    statusMessage.type === "success"
+                      ? "bg-green-900/50 text-green-300 border border-green-700"
+                      : "bg-red-900/50 text-red-300 border border-red-700"
+                  }`}
+                >
+                  {statusMessage.text}
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="bg-[#20699B] text-white px-8 py-3 rounded-lg hover:bg-[#1a5a85] transition-all font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 border border-[#20699B]/30"
+                disabled={isSubmitting}
+                className="bg-[#20699B] text-white px-8 py-3 rounded-lg hover:bg-[#1a5a85] transition-all font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 border border-[#20699B]/30 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Enviar
+                {isSubmitting ? "Enviando..." : "Enviar"}
               </button>
             </form>
           </div>
