@@ -3,4 +3,7 @@
 @theme {
   --font-main: var(--font-vietnam-pro);
   --font-secondary: var(--font-raleway);
+
+  --color-primary: #1f699b;
+  --color-secondary: #094574;
 }

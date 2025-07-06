@@ -5,6 +5,7 @@ import type React from "react";
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { gsap } from "gsap";
 
 import ImgCarousel1 from "@/assets/ImgCarousel1.jpg";
 import ImgCarousel2 from "@/assets/ImgCarousel2.jpg";
@@ -30,6 +31,97 @@ const productos = [
     descripcion:
       "Alta estabilidad y resistencia para montacargas industriales.",
   },
+  {
+    id: 4,
+    imagen: ImgCarousel1,
+    nombre: "Producto 4",
+    descripcion: "Descripción del producto 4.",
+  },
+  {
+    id: 5,
+    imagen: ImgCarousel2,
+    nombre: "Producto 5",
+    descripcion: "Descripción del producto 5.",
+  },
+  {
+    id: 6,
+    imagen: ImgCarousel3,
+    nombre: "Producto 6",
+    descripcion: "Descripción del producto 6.",
+  },
+  {
+    id: 7,
+    imagen: ImgCarousel1,
+    nombre: "Producto 7",
+    descripcion: "Aplicaciones logísticas con tracción industrial reforzada.",
+  },
+  {
+    id: 8,
+    imagen: ImgCarousel2,
+    nombre: "Producto 8",
+    descripcion: "Descripción del producto 8.",
+  },
+  {
+    id: 9,
+    imagen: ImgCarousel3,
+    nombre: "Producto 9",
+    descripcion: "Descripción del producto 9.",
+  },
+  {
+    id: 10,
+    imagen: ImgCarousel1,
+    nombre: "Producto 10",
+    descripcion: "Descripción del producto 10.",
+  },
+  {
+    id: 11,
+    imagen: ImgCarousel2,
+    nombre: "Producto 11",
+    descripcion: "Descripción del producto 11.",
+  },
+  {
+    id: 12,
+    imagen: ImgCarousel3,
+    nombre: "Producto 12",
+    descripcion: "Descripción del producto 12.",
+  },
+  {
+    id: 13,
+    imagen: ImgCarousel1,
+    nombre: "Producto 13",
+    descripcion: "Descripción del producto 13.",
+  },
+  {
+    id: 14,
+    imagen: ImgCarousel2,
+    nombre: "Producto 14",
+    descripcion: "Descripción del producto 14.",
+  },
+  {
+    id: 15,
+    imagen: ImgCarousel3,
+    nombre: "Producto 15",
+    descripcion: "Descripción del producto 15.",
+  },
+  {
+    id: 16,
+    imagen: ImgCarousel1,
+    nombre: "Producto 16",
+    descripcion: "Aplicaciones logísticas con tracción industrial reforzada.",
+  },
+  {
+    id: 17,
+    imagen: ImgCarousel2,
+    nombre: "MR-1",
+    descripcion: "Carcasa reforzada para uso agrícola intensivo.",
+  },
+  {
+    id: 18,
+    imagen: ImgCarousel3,
+    nombre: "TH202",
+    descripcion:
+      "Alta estabilidad y resistencia para montacargas industriales.",
+  },
 ];
 
 export default function CarouselSection() {
@@ -37,20 +129,78 @@ export default function CarouselSection() {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [translateX, setTranslateX] = useState(0);
-  const carouselRef = useRef<HTMLDivElement>(null);
+
+  const titleRefLineOne = useRef<HTMLHeadingElement>(null);
+  const titleRefLineTwo = useRef<HTMLHeadingElement>(null);
+
+  const paragraphRef = useRef<HTMLParagraphElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          const tl = gsap.timeline({
+            defaults: { ease: "power3.out", duration: 0.9 },
+          });
+
+          tl.to(titleRefLineOne.current, { y: 0, opacity: 1 })
+            .to(titleRefLineTwo.current, { y: 0, opacity: 1 }, "-=0.7")
+            .to(paragraphRef.current, { y: 0, opacity: 1 }, "-=0.7");
+
+          setHasAnimated(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.5,
+      }
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, [hasAnimated]);
+
+  const getItemsPerView = () => {
+    if (typeof window !== "undefined") {
+      if (window.innerWidth >= 1024) return 4;
+      if (window.innerWidth >= 768) return 3;
+      return 2;
+    }
+    return 2;
+  };
+
+  const [itemsPerView, setItemsPerView] = useState(0);
+
+  useEffect(() => {
+    setItemsPerView(getItemsPerView());
+
+    const handleResize = () => {
+      setItemsPerView(getItemsPerView());
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const maxIndex = Math.max(0, productos.length - itemsPerView);
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % productos.length);
+    setCurrentIndex((prevIndex) => (prevIndex >= maxIndex ? 0 : prevIndex + 1));
   };
 
   const prevSlide = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + productos.length) % productos.length
-    );
+    setCurrentIndex((prevIndex) => (prevIndex <= 0 ? maxIndex : prevIndex - 1));
   };
 
   const goToSlide = (index: number) => {
-    setCurrentIndex(index);
+    setCurrentIndex(Math.min(index, maxIndex));
   };
 
   const handleDragStart = (clientX: number) => {
@@ -113,6 +263,8 @@ export default function CarouselSection() {
       if (isDragging) {
         handleDragEnd();
       }
+      setIsDragging(false);
+      setTranslateX(0);
     };
 
     if (isDragging) {
@@ -126,148 +278,129 @@ export default function CarouselSection() {
     };
   }, [isDragging, startX]);
 
+  const translatePercentage = (currentIndex * 100) / itemsPerView;
+
+  const itemWidthClasses = {
+    2: "w-1/2",
+    3: "w-1/3",
+    4: "w-1/4",
+  };
+
   return (
-    <>
-      <section
-        className="relative py-16 overflow-hidden"
-        style={{
-          fontFamily: "Be Vietnam Pro, sans-serif",
-          background: "linear-gradient(135deg, #20699B 0%, #1a5a85 100%)",
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-left mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              PRODUCTOS QUE MARCAN
-              <br />
-              LA DIFERENCIA
+    <section
+      id="products"
+      ref={sectionRef}
+      className="relative py-16 overflow-hidden bg-primary"
+    >
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="text-left mb-12">
+          <div className="overflow-hidden">
+            <h2
+              ref={titleRefLineOne}
+              className="text-white font-main text-[38px] md:text-[46px] lg:text-[52px] w-full font-[400] leading-[1.2] translate-y-full opacity-0"
+            >
+              Productos que marcan
             </h2>
-            <p className="text-xl text-white/90 max-w-3xl">
+          </div>
+          <div className="overflow-hidden">
+            <h2
+              ref={titleRefLineTwo}
+              className="text-white font-main text-[38px] md:text-[46px] lg:text-[52px] w-full font-[400] leading-[1.2] translate-y-full opacity-0"
+            >
+              la diferencia
+            </h2>
+          </div>
+
+          <div className="overflow-hidden mt-4">
+            <p
+              ref={paragraphRef}
+              className="text-[14px] md:text-[18px] lg:text-[22px] text-white/80 max-w-3xl leading-[1.2] translate-y-full opacity-0"
+            >
               Tecnología, durabilidad y rendimiento para enfrentar los desafíos
               más exigentes con la máxima confiabilidad.
             </p>
           </div>
+        </div>
 
-          <div className="relative">
+        <div className="relative">
+          <div
+            className="relative overflow-hidden rounded-sm cursor-grab active:cursor-grabbing"
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
             <div
-              ref={carouselRef}
-              className="relative overflow-hidden rounded-lg cursor-grab active:cursor-grabbing"
-              onMouseDown={handleMouseDown}
-              onMouseMove={handleMouseMove}
-              onMouseUp={handleMouseUp}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
+              className="flex transition-transform duration-200 ease-out"
+              style={{
+                transform: `translateX(calc(-${translatePercentage}% + ${
+                  isDragging ? translateX : 0
+                }px))`,
+                transitionDuration: isDragging ? "0ms" : "200ms",
+              }}
             >
-              <div
-                className="flex transition-transform duration-300 ease-out"
-                style={{
-                  transform: `translateX(calc(-${currentIndex * 100}% + ${
-                    isDragging ? translateX : 0
-                  }px))`,
-                  transitionDuration: isDragging ? "0ms" : "300ms",
-                }}
-              >
-                {productos.map((producto, slideIndex) => (
-                  <div key={producto.id} className="w-full flex-shrink-0">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3 px-4">
-                      <div className="md:hidden">
-                        <div
-                          className="relative rounded shadow-lg overflow-hidden h-[500px]"
-                          style={{ backgroundColor: "#ffffff" }}
-                        >
-                          <div
-                            className="absolute inset-0 flex items-center justify-center p-8"
-                            style={{
-                              background: "#ffffff",
-                            }}
-                          >
-                            <Image
-                              src={producto.imagen || "/placeholder.svg"}
-                              alt={producto.nombre}
-                              width={300}
-                              height={300}
-                              className="object-contain max-w-full max-h-full drop-shadow-lg"
-                              style={{
-                                filter:
-                                  "drop-shadow(0 4px 8px rgba(0,0,0,0.1))",
-                              }}
-                            />
-                          </div>
+              {productos.map((producto, index) => (
+                <div
+                  key={`${producto.id}-${index}`}
+                  className={`flex-shrink-0 px-2 ${
+                    itemWidthClasses[
+                      itemsPerView as keyof typeof itemWidthClasses
+                    ] || "w-full"
+                  }`}
+                >
+                  <div className="relative rounded overflow-hidden h-[300px] md:h-[350px] xl:h-[400px] group bg-white">
+                    <div className="absolute inset-0 flex items-center justify-center p-8 overflow-hidden bg-white">
+                      <Image
+                        src={producto.imagen || "/placeholder.svg"}
+                        alt={producto.nombre}
+                        width={300}
+                        height={300}
+                        className="object-contain max-w-full max-h-full group-hover:scale-110 transition-all ease-in-out duration-200"
+                      />
+                    </div>
 
-                          <div className="absolute bottom-8 left-6 right-6 bg-white/95 backdrop-blur-sm p-5 rounded shadow-lg border border-gray-100">
-                            <h3 className="text-2xl font-bold text-black mb-3">
-                              {producto.nombre}
-                            </h3>
-                            <p className="text-gray-800 leading-relaxed">
-                              {producto.descripcion}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="hidden md:contents">
-                        {productos.map((item) => (
-                          <div
-                            key={item.id}
-                            className="relative rounded shadow-lg overflow-hidden h-[500px]"
-                            style={{ backgroundColor: "#ffffff" }}
-                          >
-                            <div
-                              className="absolute inset-0 flex items-center justify-center p-8"
-                              style={{
-                                background: "#ffffff",
-                              }}
-                            >
-                              <Image
-                                src={item.imagen || "/placeholder.svg"}
-                                alt={item.nombre}
-                                width={300}
-                                height={300}
-                                className="object-contain max-w-full max-h-full drop-shadow-lg"
-                                style={{
-                                  filter:
-                                    "drop-shadow(0 4px 8px rgba(0,0,0,0.1))",
-                                }}
-                              />
-                            </div>
-
-                            <div className="absolute bottom-8 left-6 right-6 bg-white/95 backdrop-blur-sm p-5 rounded shadow-lg border border-gray-100">
-                              <h3 className="text-2xl font-bold text-black mb-3">
-                                {item.nombre}
-                              </h3>
-                              <p className="text-gray-800 leading-relaxed">
-                                {item.descripcion}
-                              </p>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
+                    <div className="absolute bottom-0 w-full bg-white p-2 md:p-3 rounded shadow-lg border border-gray-100 lg:transition-transform lg:duration-300 lg:ease-out lg:translate-y-[calc(100%-55px)] lg:group-hover:translate-y-0 rounded-t-lg">
+                      {" "}
+                      <h3 className="text-[12px] md:text-[14px] lg:text-[16px] font-bold text-black mb-3 mt-1">
+                        {" "}
+                        {producto.nombre}
+                      </h3>
+                      <p className="text-gray-800 text-[12px] md:text-[14px] lg:text-[16px] leading-relaxed">
+                        {producto.descripcion}
+                      </p>
                     </div>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
-
-            <button
-              onClick={prevSlide}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white text-[#20699B] p-3 rounded-full transition-all duration-200 hover:scale-110 hover:shadow-lg z-10 shadow-md"
-              aria-label="Producto anterior"
-            >
-              <ChevronLeft size={24} />
-            </button>
-
-            <button
-              onClick={nextSlide}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white text-[#20699B] p-3 rounded-full transition-all duration-200 hover:scale-110 hover:shadow-lg z-10 shadow-md"
-              aria-label="Siguiente producto"
-            >
-              <ChevronRight size={24} />
-            </button>
           </div>
 
-          <div className="flex justify-center mt-8 space-x-2 md:hidden">
-            {productos.map((_, index) => (
+          {productos.length > itemsPerView && (
+            <>
+              <button
+                onClick={prevSlide}
+                className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full border border-gray-500/50 text-gray-500/50 font-main  mt-4 p-3 lg:p-4 hover:backdrop-blur-xl hover:text-primary hover:border-primary transition duration-300 cursor-pointer backdrop-blur-lg hover:bg-white"
+                aria-label="Producto anterior"
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </button>
+
+              <button
+                onClick={nextSlide}
+                className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full border border-gray-500/50 text-gray-500/50 font-main  mt-4 p-3 lg:p-4 hover:backdrop-blur-xl hover:text-primary hover:border-primary transition duration-300 cursor-pointer backdrop-blur-lg hover:bg-white"
+                aria-label="Siguiente producto"
+              >
+                <ChevronRight className="h-4 w-4" />
+              </button>
+            </>
+          )}
+        </div>
+
+        {productos.length > itemsPerView && (
+          <div className="flex justify-center mt-8 space-x-2">
+            {Array.from({ length: maxIndex + 1 }, (_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
@@ -276,43 +409,12 @@ export default function CarouselSection() {
                     ? "bg-white scale-125"
                     : "bg-white/50 hover:bg-white/70"
                 }`}
-                aria-label={`Ir al producto ${index + 1}`}
+                aria-label={`Ir a la página ${index + 1}`}
               />
             ))}
           </div>
-        </div>
-      </section>
-
-      <section
-        className="py-16 bg-gray-100"
-        style={{
-          fontFamily: "Be Vietnam Pro, sans-serif",
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-start gap-8">
-            <div className="flex-1">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#20699B]">
-                SIEMPRE CERCA
-                <br />
-                TUYO
-              </h2>
-            </div>
-
-            <div className="flex-1 flex flex-col items-start gap-6">
-              <p className="text-lg text-gray-700 max-w-2xl">
-                Estamos expandiendo nuestra red de distribución. Contactanos
-                para conocer el punto más cercano.
-              </p>
-              <button className="bg-white text-[#20699B] px-8 py-4 rounded hover:bg-gray-50 transition-all duration-200 font-medium text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 border border-[#20699B]">
-                Contáctanos
-              </button>
-            </div>
-          </div>
-
-          <div className="mt-12 pt-8 border-t-2 border-gray-800"></div>
-        </div>
-      </section>
-    </>
+        )}
+      </div>
+    </section>
   );
 }

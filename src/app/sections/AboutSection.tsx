@@ -61,7 +61,6 @@ export default function AboutSection() {
   const animateContent = (direction: "in" | "out" = "in") => {
     if (!contentRef.current) return;
 
-    // Kill any existing timeline
     if (timelineRef.current) {
       timelineRef.current.kill();
     }
@@ -74,7 +73,6 @@ export default function AboutSection() {
     ];
 
     if (direction === "out") {
-      // Animate out
       timelineRef.current = gsap.timeline();
       timelineRef.current.to(elements, {
         opacity: 0,
@@ -84,7 +82,6 @@ export default function AboutSection() {
         ease: "power2.inOut",
       });
     } else {
-      // Animate in
       gsap.set(elements, { opacity: 0, y: 30 });
 
       timelineRef.current = gsap.timeline();
@@ -132,21 +129,22 @@ export default function AboutSection() {
     };
   }, [activeStep]);
 
-  // Animate content when activeStep changes
   useEffect(() => {
     animateContent("in");
   }, [activeStep]);
 
-  // Initial animation
   useEffect(() => {
     animateContent("in");
   }, []);
 
   return (
-    <div ref={sectionRef} className="min-h-[600vh] relative bg-white">
+    <section
+      id="about"
+      ref={sectionRef}
+      className="min-h-[600vh] relative bg-white"
+    >
       <div className="sticky top-0 h-screen flex items-center justify-center">
         <div className="max-w-4xl mx-auto px-8 w-full">
-          {/* Progress indicator */}
           <div className="absolute top-1/2 right-8 z-10 transform -translate-y-1/2">
             <div className="flex flex-col space-y-2">
               {storySteps.map((_, index) => (
@@ -154,7 +152,7 @@ export default function AboutSection() {
                   key={index}
                   className={`w-2 h-8 rounded-full transition-all duration-500 ease-out ${
                     index <= activeStep
-                      ? "bg-black scale-110"
+                      ? "bg-primary scale-110"
                       : "bg-gray-300 scale-100"
                   }`}
                 />
@@ -162,44 +160,43 @@ export default function AboutSection() {
             </div>
           </div>
 
-          {/* Main content */}
           <div ref={contentRef} className="text-center space-y-8">
-            {/* Step counter */}
             <div
               ref={counterRef}
-              className="text-sm text-gray-400 font-light tracking-widest"
+              className="text-sm text-gray-400 font-light tracking-widest overflow-hidden"
             >
               {String(activeStep + 1).padStart(2, "0")} /{" "}
               {String(storySteps.length).padStart(2, "0")}
             </div>
 
-            {/* Title */}
             <div className="space-y-4">
-              <h1
-                ref={titleRef}
-                className="text-5xl md:text-6xl font-light text-[#094474]"
-              >
-                {storySteps[activeStep].title}
-              </h1>
-              <h2
-                ref={subtitleRef}
-                className="text-xl md:text-2xl text-gray-600 font-light"
-              >
-                {storySteps[activeStep].subtitle}
-              </h2>
+              <div className="overflow-hidden">
+                <h1
+                  ref={titleRef}
+                  className="text-[48px] md:text-[60px] lg:text-[64px] font-light text-primary leading-[1.2]"
+                >
+                  {storySteps[activeStep].title}
+                </h1>
+              </div>
+              <div className="overflow-hidden">
+                <h2
+                  ref={subtitleRef}
+                  className="text-[16px] md:text-[20px] lg:text-[24px] text-gray-600 font-light leading-[1.2]"
+                >
+                  {storySteps[activeStep].subtitle}
+                </h2>
+              </div>
             </div>
 
-            {/* Content */}
-            <div className="max-w-2xl mx-auto space-y-6">
+            <div className="max-w-2xl w-[80%] mx-auto space-y-6 overflow-hidden">
               <p
                 ref={textRef}
-                className="text-lg text-[#094474] leading-relaxed"
+                className="text-[14px] md:text-[18px] lg:text-[20px] text-primary leading-relaxed"
               >
                 {storySteps[activeStep].content}
               </p>
             </div>
 
-            {/* Scroll indicator */}
             {activeStep < storySteps.length - 1 && (
               <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
                 <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
@@ -210,6 +207,6 @@ export default function AboutSection() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

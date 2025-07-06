@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={` ${vietnamPro.variable} ${raleway.variable} antialiased`}
+        className={` ${vietnamPro.variable} ${raleway.variable} antialiased scroll-smooth`}
       >
         <Navbar />
         {children}

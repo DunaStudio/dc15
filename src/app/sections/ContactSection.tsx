@@ -36,6 +36,7 @@ export default function ContactSection() {
 
   return (
     <section
+      id="contact"
       className="relative py-16 overflow-hidden"
       style={{
         fontFamily: "Be Vietnam Pro, sans-serif",
