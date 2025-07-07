@@ -4,10 +4,9 @@ import logoHaida from "@/assets/images/haidaLogo.png";
 
 export default function BrandsSection() {
   return (
-    <section className="w-full py-16 md:py-24 bg-gray-50">
+    <section className="w-full py-12 md:py-16 bg-gray-50">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 min-h-[200px] max-w-7xl mx-auto">
-          {/* Mitad izquierda - Texto */}
           <div className="flex flex-col justify-center space-y-6 pr-0 md:pr-8">
             <h2 className="text-title text-gray-900 text-center lg:text-start">
               Marcas con las <br /> que trabajamos
@@ -19,7 +18,6 @@ export default function BrandsSection() {
             </p>
           </div>
 
-          {/* Mitad derecha - Logos */}
           <div className="flex flex-col justify-center items-center space-y-8 pl-0 md:pl-8 mt-10 lg:mt-0">
             <div className="flex flex-col sm:flex-row gap-6 sm:gap-8">
               <div className="bg-white rounded-xl shadow-sm p-6 md:p-8 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex justify-center items-center">

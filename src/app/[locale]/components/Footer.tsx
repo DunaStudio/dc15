@@ -56,15 +56,9 @@ export default function Footer() {
             >
               {t("productos")}
             </button>
-<<<<<<< HEAD:src/app/components/Footer.tsx
             <button className="hover:text-gray-300 transition-colors w-max cursor-pointer">
-              Otro cosa
-            </button>
-=======
-            <a href="#" className="hover:text-gray-300 transition-colors">
               {t("otroCosa")}
-            </a>
->>>>>>> 7002d3b3ae6c9e1c102b43ed1758c647f1062022:src/app/[locale]/components/Footer.tsx
+            </button>
             <button
               onClick={() => scrollToSection("contact")}
               className="hover:text-gray-300 transition-colors w-max cursor-pointer"
