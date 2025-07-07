@@ -6,7 +6,7 @@ import CamionetaImg from "@/assets/Camioneta.png";
 export default function CamionetaSection() {
   return (
     <section
-      className="relative min-h-screen flex items-center justify-center"
+      className="relative w-screen min-h-screen flex items-center justify-center"
       style={{ fontFamily: "Be Vietnam Pro, sans-serif" }}
     >
       <div className="absolute inset-0">

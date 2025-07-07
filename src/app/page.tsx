@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import ContactSection from "./sections/ContactSection";
 import CamionetaSection from "./sections/CamionetaSection";
 import UbicationBanner from "./sections/UbicationBanner";
+import BrandsBanner from "./sections/BrandsBanner";
 
 export default function Home() {
   return (
@@ -13,10 +14,8 @@ export default function Home() {
       <AboutSection />
       <CarouselSection />
       <UbicationBanner />
-      {/* <div className="flex flex-col justify-center items-center min-h-screen w-full bg-[#20699B] text-white">
-        <p>otra seccion meganashe</p>
-      </div> */}
       <CamionetaSection />
+      <BrandsBanner />
       <ContactSection />
     </div>
   );

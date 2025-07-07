@@ -37,28 +37,28 @@ export default function Footer() {
           <div className="flex flex-col items-center lg:items-start lg:flex-row gap-6 text-sm mx-auto lg:mx-0">
             <button
               onClick={() => scrollToSection("hero")}
-              className="hover:text-gray-300 transition-colors w-max "
+              className="hover:text-gray-300 transition-colors w-max cursor-pointer"
             >
               Inicio
             </button>
             <button
               onClick={() => scrollToSection("about")}
-              className="hover:text-gray-300 transition-colors w-max"
+              className="hover:text-gray-300 transition-colors w-max cursor-pointer"
             >
               Nosotros
             </button>
             <button
               onClick={() => scrollToSection("products")}
-              className="hover:text-gray-300 transition-colors w-max"
+              className="hover:text-gray-300 transition-colors w-max cursor-pointer"
             >
               Productos
             </button>
-            <a href="#" className="hover:text-gray-300 transition-colors w-max">
+            <button className="hover:text-gray-300 transition-colors w-max cursor-pointer">
               Otro cosa
-            </a>
+            </button>
             <button
               onClick={() => scrollToSection("contact")}
-              className="hover:text-gray-300 transition-colors w-max"
+              className="hover:text-gray-300 transition-colors w-max cursor-pointer"
             >
               Contacto
             </button>

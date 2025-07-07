@@ -229,7 +229,7 @@ export default function ContactSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-white text-primary px-8 py-3 rounded-lg hover:bg-white transition-all font-medium transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="bg-white text-primary px-8 py-3 rounded-lg hover:bg-primary hover:text-white transition-all font-medium transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed w-full lg:w-auto"
               >
                 {isSubmitting ? "Enviando..." : "Enviar"}
               </button>

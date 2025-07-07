@@ -59,7 +59,7 @@ export default function UbicationBanner() {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-col lg:flex-row justify-between items-start gap-8">
           <div className="flex flex-col lg:flex-row justify-between w-full">
-            <div className="flex flex-col lg:px-10 border-primary lg:border-r-2 ">
+            <div className="flex flex-col lg:pr-10 border-primary lg:border-r-2 ">
               <div className="overflow-hidden">
                 <h2
                   ref={ubicationTitleRefLineOne}
