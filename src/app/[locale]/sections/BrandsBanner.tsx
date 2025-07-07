@@ -11,7 +11,7 @@ export default function BrandsSection() {
             <h2 className="text-title text-gray-900 text-center lg:text-start">
               Marcas con las <br /> que trabajamos
             </h2>
-            <p className="text-subtitle text-primary text-center lg:text-start">
+            <p className="text-subtitle text-neutral-500 text-center lg:text-start">
               Colaboramos con marcas líderes en la industria para brindarte la
               mejor experiencia y calidad en nuestros servicios. Construyendo
               alianzas estratégicas para tu éxito.
