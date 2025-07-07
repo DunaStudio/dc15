@@ -34,11 +34,11 @@ export default function CamionetaSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          <div className="group bg-black/30 backdrop-blur-sm p-8 rounded-lg border border-white/10 transition-all duration-300 ease-in-out hover:bg-white hover:backdrop-blur-md hover:border-white/60 ">
-            <h3 className="font-main text-[24px] md:text-[28px] lg:text-[32px] w-full font-[600] leading-[1.2] mb-4 text-white group-hover:text-black transition-colors duration-300">
+          <div className="group bg-black/30 backdrop-blur-sm p-8 rounded-lg border border-white/10 transition-all duration-200 ease-in-out hover:bg-white hover:backdrop-blur-md hover:border-white/60 ">
+            <h3 className="font-main text-[24px] md:text-[28px] lg:text-[32px] w-full font-[600] leading-[1.2] mb-4 text-white group-hover:text-black transition-colors duration-200">
               Eficiencia
             </h3>
-            <p className="text-white/90 leading-relaxed group-hover:text-black transition-colors duration-300">
+            <p className="text-white/90 leading-relaxed group-hover:text-black transition-colors duration-200">
               Diseñamos nuestros neumáticos para maximizar el rendimiento con el
               menor uso posible de material. Esto reduce el desperdicio, mejora
               la eficiencia energética y prolonga la vida útil de cada
@@ -46,11 +46,11 @@ export default function CamionetaSection() {
             </p>
           </div>
 
-          <div className="group bg-black/30 backdrop-blur-sm p-8 rounded-lg border border-white/10 transition-all duration-300 ease-in-out hover:bg-white hover:backdrop-blur-md hover:border-white/60">
-            <h3 className="font-main text-[24px] md:text-[28px] lg:text-[32px] w-full font-[600] leading-[1.2] mb-4 text-white group-hover:text-black transition-colors duration-300">
+          <div className="group bg-black/30 backdrop-blur-sm p-8 rounded-lg border border-white/10 transition-all duration-200 ease-in-out hover:bg-white hover:backdrop-blur-md hover:border-white/60">
+            <h3 className="font-main text-[24px] md:text-[28px] lg:text-[32px] w-full font-[600] leading-[1.2] mb-4 text-white group-hover:text-black transition-colors duration-200">
               Reciclaje
             </h3>
-            <p className="text-white/90 leading-relaxed group-hover:text-black transition-colors duration-300">
+            <p className="text-white/90 leading-relaxed group-hover:text-black transition-colors duration-200">
               Incorporamos prácticas de reciclaje en cada etapa del proceso,
               desde la fabricación hasta el fin de vida útil del neumático.
               Apostamos por una producción responsable que cuida nuestro
