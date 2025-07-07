@@ -7,120 +7,48 @@ import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { gsap } from "gsap";
 
-import ImgCarousel1 from "@/assets/ImgCarousel1.jpg";
-import ImgCarousel2 from "@/assets/ImgCarousel2.jpg";
-import ImgCarousel3 from "@/assets/ImgCarousel3.jpg";
+import Tyre1 from "@/assets/images/products/ImageMR1.webp";
+import Tyre2 from "@/assets/images/products/ImageR2.webp";
+import Tyre3 from "@/assets/images/products/ImageTH201.webp";
+import Tyre4 from "@/assets/images/products/ImageTH202.webp";
+import Tyre5 from "@/assets/images/products/ImageTH900.webp";
 
 const productos = [
   {
     id: 1,
-    imagen: ImgCarousel1,
-    nombre: "TH657",
-    descripcion: "Aplicaciones logísticas con tracción industrial reforzada.",
+    imagen: Tyre1,
+    nombre: "MR-1",
+    descripcion: "Carcasa reforzada para tareas agrícolas de alta exigencia.",
   },
   {
     id: 2,
-    imagen: ImgCarousel2,
-    nombre: "MR-1",
-    descripcion: "Carcasa reforzada para uso agrícola intensivo.",
+    imagen: Tyre2,
+    nombre: "R-2",
+    descripcion: "Tracción confiable para operaciones rurales intensivas",
   },
   {
     id: 3,
-    imagen: ImgCarousel3,
-    nombre: "TH202",
-    descripcion:
-      "Alta estabilidad y resistencia para montacargas industriales.",
+    imagen: Tyre3,
+    nombre: "TH201",
+    descripcion: "Estabilidad y control para maniobras industriales precisas.",
   },
   {
     id: 4,
-    imagen: ImgCarousel1,
-    nombre: "Producto 4",
-    descripcion: "Descripción del producto 4.",
+    imagen: Tyre4,
+    nombre: "TH202",
+    descripcion: "Alta resistencia para montacargas en entornos exigentes.",
   },
   {
     id: 5,
-    imagen: ImgCarousel2,
-    nombre: "Producto 5",
-    descripcion: "Descripción del producto 5.",
+    imagen: Tyre5,
+    nombre: "TH900",
+    descripcion: "Desempeño robusto en aplicaciones de carga continua.",
   },
   {
     id: 6,
-    imagen: ImgCarousel3,
+    imagen: Tyre1,
     nombre: "Producto 6",
     descripcion: "Descripción del producto 6.",
-  },
-  {
-    id: 7,
-    imagen: ImgCarousel1,
-    nombre: "Producto 7",
-    descripcion: "Aplicaciones logísticas con tracción industrial reforzada.",
-  },
-  {
-    id: 8,
-    imagen: ImgCarousel2,
-    nombre: "Producto 8",
-    descripcion: "Descripción del producto 8.",
-  },
-  {
-    id: 9,
-    imagen: ImgCarousel3,
-    nombre: "Producto 9",
-    descripcion: "Descripción del producto 9.",
-  },
-  {
-    id: 10,
-    imagen: ImgCarousel1,
-    nombre: "Producto 10",
-    descripcion: "Descripción del producto 10.",
-  },
-  {
-    id: 11,
-    imagen: ImgCarousel2,
-    nombre: "Producto 11",
-    descripcion: "Descripción del producto 11.",
-  },
-  {
-    id: 12,
-    imagen: ImgCarousel3,
-    nombre: "Producto 12",
-    descripcion: "Descripción del producto 12.",
-  },
-  {
-    id: 13,
-    imagen: ImgCarousel1,
-    nombre: "Producto 13",
-    descripcion: "Descripción del producto 13.",
-  },
-  {
-    id: 14,
-    imagen: ImgCarousel2,
-    nombre: "Producto 14",
-    descripcion: "Descripción del producto 14.",
-  },
-  {
-    id: 15,
-    imagen: ImgCarousel3,
-    nombre: "Producto 15",
-    descripcion: "Descripción del producto 15.",
-  },
-  {
-    id: 16,
-    imagen: ImgCarousel1,
-    nombre: "Producto 16",
-    descripcion: "Aplicaciones logísticas con tracción industrial reforzada.",
-  },
-  {
-    id: 17,
-    imagen: ImgCarousel2,
-    nombre: "MR-1",
-    descripcion: "Carcasa reforzada para uso agrícola intensivo.",
-  },
-  {
-    id: 18,
-    imagen: ImgCarousel3,
-    nombre: "TH202",
-    descripcion:
-      "Alta estabilidad y resistencia para montacargas industriales.",
   },
 ];
 
@@ -314,7 +242,7 @@ export default function CarouselSection() {
           <div className="overflow-hidden mt-4">
             <p
               ref={paragraphRef}
-              className="text-[14px] md:text-[18px] lg:text-[22px] text-white/80 max-w-3xl leading-[1.2] translate-y-full opacity-0"
+              className="text-[14px] md:text-[18px] text-white/80 max-w-3xl leading-[1.2] translate-y-full opacity-0"
             >
               Tecnología, durabilidad y rendimiento para enfrentar los desafíos
               más exigentes con la máxima confiabilidad.
@@ -350,18 +278,21 @@ export default function CarouselSection() {
                     ] || "w-full"
                   }`}
                 >
-                  <div className="relative rounded overflow-hidden h-[300px] md:h-[350px] xl:h-[400px] group bg-white">
+                  <div className="relative rounded overflow-hidden min-h-[300px] group bg-white">
                     <div className="absolute inset-0 flex items-center justify-center p-8 overflow-hidden bg-white">
                       <Image
                         src={producto.imagen || "/placeholder.svg"}
                         alt={producto.nombre}
                         width={300}
                         height={300}
-                        className="object-contain max-w-full max-h-full group-hover:scale-110 transition-all ease-in-out duration-200"
+                        className="object-contain max-w-full max-h-full scale-125 group-hover:scale-150 transition-all ease-in-out duration-200"
                       />
                     </div>
 
-                    <div className="absolute bottom-0 w-full bg-white p-2 md:p-3 rounded shadow-lg border border-gray-100 lg:transition-transform lg:duration-300 lg:ease-out lg:translate-y-[calc(100%-55px)] lg:group-hover:translate-y-0 rounded-t-lg">
+                    <div
+                      className="absolute bottom-0 w-full bg-white p-2 md:p-3 rounded shadow-lg border border-gray-100 lg:transition-transform lg:duration-300 lg:ease-out lg:translate-y-[calc(100%-55px)] lg:group-hover:translate-y-0 
+                    group-hover:bg-white/50 group-hover:backdrop-blur-md"
+                    >
                       {" "}
                       <h3 className="text-[12px] md:text-[14px] lg:text-[16px] font-bold text-black mb-3 mt-1">
                         {" "}

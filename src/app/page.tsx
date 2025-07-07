@@ -16,9 +16,8 @@ export default function Home() {
       {/* <div className="flex flex-col justify-center items-center min-h-screen w-full bg-[#20699B] text-white">
         <p>otra seccion meganashe</p>
       </div> */}
-      {/* <CamionetaSection /> */}
-      {/* <ContactSection /> */}
-      {/* <Footer /> */}
+      <CamionetaSection />
+      <ContactSection />
     </div>
   );
 }

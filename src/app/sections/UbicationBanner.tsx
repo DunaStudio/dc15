@@ -80,7 +80,7 @@ export default function UbicationBanner() {
             </div>
 
             <div className="flex-1 flex flex-col lg:items-end gap-6 w-full mt-10 lg:mt-0">
-              <p className="text-[14px] md:text-[18px] lg:text-[22px] text-primary lg:max-w-[50%] text-start lg:text-end leading-[1.2] ">
+              <p className="text-[14px] md:text-[18px] text-primary lg:max-w-[50%] text-start lg:text-end leading-[1.2] ">
                 Estamos expandiendo nuestra red de distribución. Contactanos
                 para conocer el punto más cercano.
               </p>

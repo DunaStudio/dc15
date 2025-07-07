@@ -87,7 +87,7 @@ export default function HeroSection() {
         <div className="overflow-hidden">
           <p
             ref={textRef}
-            className="text-center text-[14px] md:text-[18px] lg:text-[22px] text-neutral-300 mx-auto w-[90%] md:w-[75%] lg:w-[60%] font-secondary font-[400] opacity-0 leading-[1.2] translate-y-full"
+            className="text-center text-[14px] md:text-[18px] text-neutral-300 mx-auto w-[90%] md:w-[75%] lg:w-[60%] font-secondary font-[400] opacity-0 leading-[1.2] translate-y-full"
           >
             Descubre nuestra gama de neumáticos y cámaras de aire de alto
             rendimiento, diseñados para ofrecer durabilidad y eficiencia en cada

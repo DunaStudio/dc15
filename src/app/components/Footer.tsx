@@ -4,6 +4,15 @@ import Image from "next/image";
 import Logo from "@/assets/LogoDC15-Fondo.png";
 
 export default function Footer() {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
   return (
     <footer className="bg-black text-white">
       <div className="max-w-7xl mx-auto px-4 py-8">
@@ -26,27 +35,41 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-wrap gap-6 text-sm">
-            <a href="#" className="hover:text-gray-300 transition-colors">
+            <button
+              onClick={() => scrollToSection("hero")}
+              className="hover:text-gray-300 transition-colors"
+            >
               Inicio
-            </a>
-            <a href="#" className="hover:text-gray-300 transition-colors">
+            </button>
+            <button
+              onClick={() => scrollToSection("about")}
+              className="hover:text-gray-300 transition-colors"
+            >
               Nosotros
-            </a>
-            <a href="#" className="hover:text-gray-300 transition-colors">
+            </button>
+            <button
+              onClick={() => scrollToSection("products")}
+              className="hover:text-gray-300 transition-colors"
+            >
               Productos
-            </a>
+            </button>
             <a href="#" className="hover:text-gray-300 transition-colors">
               Otro cosa
             </a>
-            <a href="#" className="hover:text-gray-300 transition-colors">
+            <button
+              onClick={() => scrollToSection("contact")}
+              className="hover:text-gray-300 transition-colors"
+            >
               Contacto
-            </a>
+            </button>
           </div>
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center mt-8 pt-4 border-t border-gray-800 text-sm">
           <p>© 2025 DC15. Todos los derechos reservados.</p>
-          <p>Desarrollado por Duna Studio</p>
+          <p>
+            Desarrollado por <span className="font-bold">Duna Studio</span>
+          </p>
         </div>
       </div>
     </footer>

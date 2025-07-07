@@ -22,11 +22,11 @@ export default function CamionetaSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 text-white">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-            COMPROMETIDOS CON LA SOSTENIBILIDAD
-            <br />Y LA EFICIENCIA EN NUESTROS PRODUCTOS.
+          <h2 className="font-main text-[38px] md:text-[46px] lg:text-[52px] font-[400] leading-[1.2]">
+            Comprometidos con la sostenibilidad
+            <br />Y la eficiencia en nuestros productos.
           </h2>
-          <p className="text-lg md:text-xl max-w-4xl mx-auto leading-relaxed">
+          <p className="ttext-[14px] md:text-[18px] max-w-4xl mx-auto mt-5">
             En DC15, nos esforzamos por utilizar materiales que minimizan el
             impacto ambiental. Nuestras tecnologías de reciclaje avanzadas nos
             permiten producir neumáticos que son duraderos y sostenibles.
@@ -34,11 +34,11 @@ export default function CamionetaSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          <div className="group bg-black/30 backdrop-blur-sm p-8 rounded-lg border border-white/10 transition-all duration-300 ease-in-out hover:bg-black/45 hover:backdrop-blur-md hover:border-[#20699B]/60 hover:shadow-lg hover:shadow-[#20699B]/20 hover:scale-[1.02]">
-            <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-[#20699B] transition-colors duration-300">
-              EFICIENCIA
+          <div className="group bg-black/30 backdrop-blur-sm p-8 rounded-lg border border-white/10 transition-all duration-300 ease-in-out hover:bg-white hover:backdrop-blur-md hover:border-white/60 ">
+            <h3 className="font-main text-[24px] md:text-[28px] lg:text-[32px] w-full font-[600] leading-[1.2] mb-4 text-white group-hover:text-black transition-colors duration-300">
+              Eficiencia
             </h3>
-            <p className="text-white/90 leading-relaxed group-hover:text-white transition-colors duration-300">
+            <p className="text-white/90 leading-relaxed group-hover:text-black transition-colors duration-300">
               Diseñamos nuestros neumáticos para maximizar el rendimiento con el
               menor uso posible de material. Esto reduce el desperdicio, mejora
               la eficiencia energética y prolonga la vida útil de cada
@@ -47,8 +47,8 @@ export default function CamionetaSection() {
           </div>
 
           <div className="group bg-black/30 backdrop-blur-sm p-8 rounded-lg border border-white/10 transition-all duration-300 ease-in-out hover:bg-black/45 hover:backdrop-blur-md hover:border-[#20699B]/60 hover:shadow-lg hover:shadow-[#20699B]/20 hover:scale-[1.02]">
-            <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-[#20699B] transition-colors duration-300">
-              RECICLAJE
+            <h3 className="font-main text-[24px] md:text-[28px] lg:text-[32px] w-full font-[600] leading-[1.2] mb-4 text-white group-hover:text-[#20699B] transition-colors duration-300">
+              Reciclaje
             </h3>
             <p className="text-white/90 leading-relaxed group-hover:text-white transition-colors duration-300">
               Incorporamos prácticas de reciclaje en cada etapa del proceso,
