@@ -67,7 +67,7 @@ export default function HeroSection() {
           <div className="overflow-hidden mx-auto">
             <h1
               ref={titleRef}
-              className="text-center text-white font-main text-[38px] md:text-[46px] lg:text-[52px] w-full font-[400] leading-[1.2] translate-y-full opacity-0"
+              className="text-center text-white text-title w-full translate-y-full opacity-0"
             >
               {t("title1")}
             </h1>
@@ -75,7 +75,7 @@ export default function HeroSection() {
           <div className="overflow-hidden mx-auto">
             <h1
               ref={subtitleRef}
-              className="text-center text-white font-main text-[38px] md:text-[46px] lg:text-[52px] w-full font-[400] leading-[1.2] translate-y-full opacity-0"
+              className="text-center text-white text-title w-full translate-y-full opacity-0"
             >
               {t("title2")}
             </h1>
@@ -84,7 +84,7 @@ export default function HeroSection() {
         <div className="overflow-hidden">
           <p
             ref={textRef}
-            className="text-center text-[14px] md:text-[18px] text-neutral-300 mx-auto w-[90%] md:w-[75%] lg:w-[60%] font-secondary font-[400] opacity-0 leading-[1.2] translate-y-full"
+            className="text-center text-subtitle text-neutral-300 mx-auto w-[90%] md:w-[75%] lg:w-[60%] font-secondary font-[400] opacity-0 leading-[1.2] translate-y-full"
           >
             {t("description")}
           </p>

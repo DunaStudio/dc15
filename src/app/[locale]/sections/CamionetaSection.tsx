@@ -21,7 +21,8 @@ export default function CamionetaSection() {
         />
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
-      <div className="relative z-10 max-w-7xl mx-auto px-4 text-white">
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 text-white py-8">
         <div className="text-center mb-16">
           <h2 className="font-main text-[38px] md:text-[46px] lg:text-[52px] font-[400] leading-[1.2]">
             {t("title")}

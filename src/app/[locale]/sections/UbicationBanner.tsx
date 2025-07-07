@@ -63,7 +63,7 @@ export default function UbicationBanner() {
               <div className="overflow-hidden">
                 <h2
                   ref={ubicationTitleRefLineOne}
-                  className="text-primary font-main text-[38px] md:text-[46px] lg:text-[52px] w-full font-[400] leading-[1.2]"
+                  className="text-primary text-title w-full text-center lg:text-left"
                 >
                   {t("title1")}
                   <br />
@@ -72,7 +72,7 @@ export default function UbicationBanner() {
               <div className="overflow-hidden">
                 <h2
                   ref={ubicationTitleRefLineTwo}
-                  className="text-primary font-main text-[38px] md:text-[46px] lg:text-[52px] w-full font-[400] leading-[1.2]"
+                  className="text-primary text-title w-full text-center lg:text-left"
                 >
                   {t("title2")}
                 </h2>
