@@ -1,12 +1,13 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import { useTranslations } from "next-intl";
 
 export default function UbicationBanner() {
+  const t = useTranslations("ubication");
   const ubicationTitleRefLineOne = useRef<HTMLHeadingElement>(null);
   const ubicationTitleRefLineTwo = useRef<HTMLHeadingElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
-
   const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
@@ -44,7 +45,6 @@ export default function UbicationBanner() {
     );
 
     observer.observe(section);
-
     return () => observer.disconnect();
   }, [hasAnimated]);
 
@@ -65,7 +65,7 @@ export default function UbicationBanner() {
                   ref={ubicationTitleRefLineOne}
                   className="text-primary text-title w-full text-center lg:text-left"
                 >
-                  Siempre cerca
+                  {t("title1")}
                   <br />
                 </h2>
               </div>
@@ -74,18 +74,16 @@ export default function UbicationBanner() {
                   ref={ubicationTitleRefLineTwo}
                   className="text-primary text-title w-full text-center lg:text-left"
                 >
-                  tuyo
+                  {t("title2")}
                 </h2>
-              </div>{" "}
+              </div>
             </div>
-
             <div className="flex-1 flex flex-col lg:items-end gap-6 w-full mt-10 lg:mt-0">
-              <p className="text-subtitle text-primary lg:max-w-[50%] lg:text-end leading-[1.2] text-center">
-                Estamos expandiendo nuestra red de distribución. Contactanos
-                para conocer el punto más cercano.
+              <p className="text-[14px] md:text-[18px] text-primary lg:max-w-[50%] text-start lg:text-end leading-[1.2] ">
+                {t("description")}
               </p>
               <button className="bg-white text-[#20699B] px-6 py-4 rounded-full transition-all duration-200 text-[12px] md:text-[14px] lg:text-[16px] transform border border-[#20699B] font-main cursor-pointer hover:bg-primary hover:text-white mt-5 lg:mt-0">
-                Contáctanos
+                {t("button")}
               </button>
             </div>
           </div>

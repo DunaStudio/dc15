@@ -1,8 +1,10 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import { useTranslations } from "next-intl";
 
 export default function HeroSection() {
+  const t = useTranslations("hero");
   const heroRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLHeadingElement>(null);
@@ -31,7 +33,6 @@ export default function HeroSection() {
 
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 1 } });
-
     tl.to(titleRef.current, { y: 0, opacity: 1 })
       .to(subtitleRef.current, { y: 0, opacity: 1 }, "-=0.8")
       .to(textRef.current, { y: 0, opacity: 1 }, "-=0.7")
@@ -57,12 +58,10 @@ export default function HeroSection() {
       >
         <source src="/HeroVideo.webm" type="video/webm" />
       </video>
-
       <div
         className="fixed top-0 left-0 w-full h-full z-[-1] pointer-events-none transition-opacity duration-200"
         style={{ backgroundColor: `rgba(0,0,0,${opacity})` }}
       />
-
       <div className="max-w-[1200px] mx-auto flex flex-col justify-center items-center gap-4 ">
         <div>
           <div className="overflow-hidden mx-auto">
@@ -70,38 +69,32 @@ export default function HeroSection() {
               ref={titleRef}
               className="text-center text-white text-title w-full translate-y-full opacity-0"
             >
-              Neumáticos creados para rendir,
+              {t("title1")}
             </h1>
           </div>
-
           <div className="overflow-hidden mx-auto">
             <h1
               ref={subtitleRef}
               className="text-center text-white text-title w-full translate-y-full opacity-0"
             >
-              diseñados para durar
+              {t("title2")}
             </h1>
           </div>
         </div>
-
         <div className="overflow-hidden">
           <p
             ref={textRef}
             className="text-center text-subtitle text-neutral-300 mx-auto w-[90%] md:w-[75%] lg:w-[60%] font-secondary font-[400] opacity-0 leading-[1.2] translate-y-full"
           >
-            Descubre nuestra gama de neumáticos y cámaras de aire de alto
-            rendimiento, diseñados para ofrecer durabilidad y eficiencia en cada
-            aplicación.
+            {t("description")}
           </p>
         </div>
-
         <div className="overflow-hidden">
           <button
             ref={buttonRef}
-            className="border border-neutral-500 rounded-full text-neutral-300 font-main text-[12px] md:text-[14px] lg:text-[16px] mt-4 px-6 py-4 
-              hover:backdrop-blur-xl hover:border-white transition duration-300 cursor-pointer backdrop-blur-lg bg-white/10 translate-y-full opacity-0"
+            className="border border-neutral-500 rounded-full text-neutral-300 font-main text-[12px] md:text-[14px] lg:text-[16px] mt-4 px-6 py-4               hover:backdrop-blur-xl hover:border-white transition duration-300 cursor-pointer backdrop-blur-lg bg-white/10 translate-y-full opacity-0"
           >
-            Conocenos
+            {t("button")}
           </button>
         </div>
       </div>

@@ -1,9 +1,11 @@
 "use client";
-
 import Image from "next/image";
 import Logo from "@/assets/LogoDC15-Fondo.png";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
+  const t = useTranslations("footer");
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -13,6 +15,7 @@ export default function Footer() {
       });
     }
   };
+
   return (
     <footer className="bg-black text-white">
       <div className="max-w-7xl mx-auto px-4 py-4 lg:py-8">
@@ -39,36 +42,41 @@ export default function Footer() {
               onClick={() => scrollToSection("hero")}
               className="hover:text-gray-300 transition-colors w-max cursor-pointer"
             >
-              Inicio
+              {t("inicio")}
             </button>
             <button
               onClick={() => scrollToSection("about")}
               className="hover:text-gray-300 transition-colors w-max cursor-pointer"
             >
-              Nosotros
+              {t("nosotros")}
             </button>
             <button
               onClick={() => scrollToSection("products")}
               className="hover:text-gray-300 transition-colors w-max cursor-pointer"
             >
-              Productos
+              {t("productos")}
             </button>
+<<<<<<< HEAD:src/app/components/Footer.tsx
             <button className="hover:text-gray-300 transition-colors w-max cursor-pointer">
               Otro cosa
             </button>
+=======
+            <a href="#" className="hover:text-gray-300 transition-colors">
+              {t("otroCosa")}
+            </a>
+>>>>>>> 7002d3b3ae6c9e1c102b43ed1758c647f1062022:src/app/[locale]/components/Footer.tsx
             <button
               onClick={() => scrollToSection("contact")}
               className="hover:text-gray-300 transition-colors w-max cursor-pointer"
             >
-              Contacto
+              {t("contacto")}
             </button>
           </div>
         </div>
-
-        <div className="flex flex-col lg:flex-row justify-between items-center mt-8 pt-4 border-t border-gray-800 text-sm gap-2">
-          <p>© 2025 DC15. Todos los derechos reservados.</p>
+        <div className="flex flex-col md:flex-row justify-between items-center mt-8 pt-4 border-t border-gray-800 text-sm">
+          <p>{t("copyright")}</p>
           <p>
-            Desarrollado por <span className="font-bold">Duna Studio</span>
+            {t("developed")} <span className="font-bold">Duna Studio</span>
           </p>
         </div>
       </div>
