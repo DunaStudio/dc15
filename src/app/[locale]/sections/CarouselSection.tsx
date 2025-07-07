@@ -1,69 +1,66 @@
 "use client";
-
 import type React from "react";
-
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { gsap } from "gsap";
-
+import { useTranslations } from "next-intl";
 import Tyre1 from "@/assets/images/products/ImageMR1.webp";
 import Tyre2 from "@/assets/images/products/ImageR2.webp";
 import Tyre3 from "@/assets/images/products/ImageTH201.webp";
 import Tyre4 from "@/assets/images/products/ImageTH202.webp";
 import Tyre5 from "@/assets/images/products/ImageTH900.webp";
 
-const productos = [
-  {
-    id: 1,
-    imagen: Tyre1,
-    nombre: "MR-1",
-    descripcion: "Carcasa reforzada para tareas agrícolas de alta exigencia.",
-  },
-  {
-    id: 2,
-    imagen: Tyre2,
-    nombre: "R-2",
-    descripcion: "Tracción confiable para operaciones rurales intensivas",
-  },
-  {
-    id: 3,
-    imagen: Tyre3,
-    nombre: "TH201",
-    descripcion: "Estabilidad y control para maniobras industriales precisas.",
-  },
-  {
-    id: 4,
-    imagen: Tyre4,
-    nombre: "TH202",
-    descripcion: "Alta resistencia para montacargas en entornos exigentes.",
-  },
-  {
-    id: 5,
-    imagen: Tyre5,
-    nombre: "TH900",
-    descripcion: "Desempeño robusto en aplicaciones de carga continua.",
-  },
-  {
-    id: 6,
-    imagen: Tyre1,
-    nombre: "Producto 6",
-    descripcion: "Descripción del producto 6.",
-  },
-];
-
 export default function CarouselSection() {
+  const t = useTranslations("products");
+
+  const productos = [
+    {
+      id: 1,
+      imagen: Tyre1,
+      nombre: t("items.mr1.name"),
+      descripcion: t("items.mr1.description"),
+    },
+    {
+      id: 2,
+      imagen: Tyre2,
+      nombre: t("items.r2.name"),
+      descripcion: t("items.r2.description"),
+    },
+    {
+      id: 3,
+      imagen: Tyre3,
+      nombre: t("items.th201.name"),
+      descripcion: t("items.th201.description"),
+    },
+    {
+      id: 4,
+      imagen: Tyre4,
+      nombre: t("items.th202.name"),
+      descripcion: t("items.th202.description"),
+    },
+    {
+      id: 5,
+      imagen: Tyre5,
+      nombre: t("items.th900.name"),
+      descripcion: t("items.th900.description"),
+    },
+    {
+      id: 6,
+      imagen: Tyre1,
+      nombre: "Producto 6",
+      descripcion: "Descripción del producto 6.",
+    },
+  ];
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [translateX, setTranslateX] = useState(0);
-
   const titleRefLineOne = useRef<HTMLHeadingElement>(null);
   const titleRefLineTwo = useRef<HTMLHeadingElement>(null);
-
   const paragraphRef = useRef<HTMLParagraphElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
-
   const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
@@ -91,7 +88,6 @@ export default function CarouselSection() {
     );
 
     observer.observe(section);
-
     return () => observer.disconnect();
   }, [hasAnimated]);
 
@@ -108,7 +104,6 @@ export default function CarouselSection() {
 
   useEffect(() => {
     setItemsPerView(getItemsPerView());
-
     const handleResize = () => {
       setItemsPerView(getItemsPerView());
     };
@@ -145,13 +140,11 @@ export default function CarouselSection() {
   const handleDragEnd = () => {
     if (!isDragging) return;
     setIsDragging(false);
-
     if (translateX > 50) {
       prevSlide();
     } else if (translateX < -50) {
       nextSlide();
     }
-
     setTranslateX(0);
   };
 
@@ -227,7 +220,7 @@ export default function CarouselSection() {
               ref={titleRefLineOne}
               className="text-white font-main text-[38px] md:text-[46px] lg:text-[52px] w-full font-[400] leading-[1.2] translate-y-full opacity-0"
             >
-              Productos que marcan
+              {t("title1")}
             </h2>
           </div>
           <div className="overflow-hidden">
@@ -235,21 +228,18 @@ export default function CarouselSection() {
               ref={titleRefLineTwo}
               className="text-white font-main text-[38px] md:text-[46px] lg:text-[52px] w-full font-[400] leading-[1.2] translate-y-full opacity-0"
             >
-              la diferencia
+              {t("title2")}
             </h2>
           </div>
-
           <div className="overflow-hidden mt-4">
             <p
               ref={paragraphRef}
               className="text-[14px] md:text-[18px] text-white/80 max-w-3xl leading-[1.2] translate-y-full opacity-0"
             >
-              Tecnología, durabilidad y rendimiento para enfrentar los desafíos
-              más exigentes con la máxima confiabilidad.
+              {t("description")}
             </p>
           </div>
         </div>
-
         <div className="relative">
           <div
             className="relative overflow-hidden rounded-sm cursor-grab active:cursor-grabbing"
@@ -288,14 +278,11 @@ export default function CarouselSection() {
                         className="object-contain max-w-full max-h-full scale-125 group-hover:scale-150 transition-all ease-in-out duration-200"
                       />
                     </div>
-
                     <div
-                      className="absolute bottom-0 w-full bg-white p-2 md:p-3 rounded shadow-lg border border-gray-100 lg:transition-transform lg:duration-300 lg:ease-out lg:translate-y-[calc(100%-55px)] lg:group-hover:translate-y-0 
-                    group-hover:bg-white/50 group-hover:backdrop-blur-md"
+                      className="absolute bottom-0 w-full bg-white p-2 md:p-3 rounded shadow-lg border border-gray-100 lg:transition-transform lg:duration-300 lg:ease-out lg:translate-y-[calc(100%-55px)] lg:group-hover:translate-y-0
+                     group-hover:bg-white/50 group-hover:backdrop-blur-md"
                     >
-                      {" "}
                       <h3 className="text-[12px] md:text-[14px] lg:text-[16px] font-bold text-black mb-3 mt-1">
-                        {" "}
                         {producto.nombre}
                       </h3>
                       <p className="text-gray-800 text-[12px] md:text-[14px] lg:text-[16px] leading-relaxed">
@@ -307,28 +294,25 @@ export default function CarouselSection() {
               ))}
             </div>
           </div>
-
           {productos.length > itemsPerView && (
             <>
               <button
                 onClick={prevSlide}
                 className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full border border-gray-500/50 text-gray-500/50 font-main  mt-4 p-3 lg:p-4 hover:backdrop-blur-xl hover:text-primary hover:border-primary transition duration-300 cursor-pointer backdrop-blur-lg hover:bg-white"
-                aria-label="Producto anterior"
+                aria-label={t("prevButton")}
               >
                 <ChevronLeft className="h-4 w-4" />
               </button>
-
               <button
                 onClick={nextSlide}
                 className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full border border-gray-500/50 text-gray-500/50 font-main  mt-4 p-3 lg:p-4 hover:backdrop-blur-xl hover:text-primary hover:border-primary transition duration-300 cursor-pointer backdrop-blur-lg hover:bg-white"
-                aria-label="Siguiente producto"
+                aria-label={t("nextButton")}
               >
                 <ChevronRight className="h-4 w-4" />
               </button>
             </>
           )}
         </div>
-
         {productos.length > itemsPerView && (
           <div className="flex justify-center mt-8 space-x-2">
             {Array.from({ length: maxIndex + 1 }, (_, index) => (
@@ -340,7 +324,7 @@ export default function CarouselSection() {
                     ? "bg-white scale-125"
                     : "bg-white/50 hover:bg-white/70"
                 }`}
-                aria-label={`Ir a la página ${index + 1}`}
+                aria-label={`${t("goToPage")} ${index + 1}`}
               />
             ))}
           </div>

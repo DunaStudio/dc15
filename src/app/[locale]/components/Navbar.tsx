@@ -2,16 +2,24 @@
 import Image from "next/image";
 import Logo from "@/assets/LogoDC15-Fondo.png";
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { gsap } from "gsap";
 import { useRef } from "react";
+import { useTranslations, useLocale } from "next-intl";
+import { useRouter, usePathname } from "../navigation";
+import { Link } from "../navigation";
 
 export default function Navbar() {
-  const [currentLanguage, setCurrentLanguage] = useState("ESP");
+  const t = useTranslations("navbar");
+  const router = useRouter();
+  const pathname = usePathname();
+  const locale = useLocale();
+
+  const [currentLanguage, setCurrentLanguage] = useState(
+    locale === "es" ? "ESP" : "ENG"
+  );
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [shouldRenderMobileMenu, setShouldRenderMobileMenu] = useState(false);
-
   const menuPanelRef = useRef<HTMLDivElement>(null);
   const menuItemRefs = useRef<HTMLButtonElement[]>([]);
   menuItemRefs.current = [];
@@ -23,12 +31,15 @@ export default function Navbar() {
   };
 
   useEffect(() => {
+    setCurrentLanguage(locale === "es" ? "ESP" : "ENG");
+  }, [locale]);
+
+  useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
     }
-
     return () => {
       document.body.style.overflow = "unset";
     };
@@ -45,7 +56,6 @@ export default function Navbar() {
           ease: "power3.out",
         }
       );
-
       gsap.fromTo(
         menuItemRefs.current,
         { opacity: 0, y: 20 },
@@ -63,9 +73,7 @@ export default function Navbar() {
 
   useEffect(() => {
     if (isMobileMenuOpen) {
-      setShouldRenderMobileMenu(true); // Mostrar antes de animar entrada
-
-      // Animación de entrada
+      setShouldRenderMobileMenu(true);
       gsap.fromTo(
         menuPanelRef.current,
         { x: "100%" },
@@ -75,7 +83,6 @@ export default function Navbar() {
           ease: "power3.out",
         }
       );
-
       gsap.fromTo(
         menuItemRefs.current,
         { opacity: 0, y: 20 },
@@ -101,9 +108,29 @@ export default function Navbar() {
   }, [isMobileMenuOpen]);
 
   const toggleLanguage = () => {
-    const newLanguage = currentLanguage === "ESP" ? "ENG" : "ESP";
-    setCurrentLanguage(newLanguage);
-    console.log(`Idioma cambiado a: ${newLanguage}`);
+    const newLocale = locale === "es" ? "en" : "es";
+
+    const currentPath = window.location.pathname;
+
+    let newPath: string;
+
+    if (currentPath === "/" || currentPath === "") {
+      newPath = `/${newLocale}`;
+    } else if (currentPath.startsWith("/es")) {
+      newPath = currentPath.replace("/es", `/${newLocale}`);
+    } else if (currentPath.startsWith("/en")) {
+      newPath = currentPath.replace("/en", `/${newLocale}`);
+    } else {
+      newPath = `/${newLocale}${currentPath}`;
+    }
+
+    newPath = newPath.replace(/\/+/g, "/");
+
+    if (newPath.length > 1 && newPath.endsWith("/")) {
+      newPath = newPath.slice(0, -1);
+    }
+
+    window.location.href = newPath;
   };
 
   const scrollToSection = (sectionId: string) => {
@@ -134,14 +161,13 @@ export default function Navbar() {
             />
           </Link>
         </div>
-
         <ul className="hidden md:flex flex-row gap-6 text-gray-700 bg-white rounded-full py-4 px-8 mx-auto border border-gray-200 text-[12px]">
           <li className="hover:text-primary cursor-pointer transition-colors">
             <button
               onClick={() => scrollToSection("hero")}
               className="outline-none"
             >
-              INICIO
+              {t("inicio")}
             </button>
           </li>
           <li className="hover:text-primary cursor-pointer transition-colors">
@@ -149,7 +175,7 @@ export default function Navbar() {
               onClick={() => scrollToSection("about")}
               className="outline-none"
             >
-              NOSOTROS
+              {t("nosotros")}
             </button>
           </li>
           <li className="hover:text-primary cursor-pointer transition-colors">
@@ -157,7 +183,7 @@ export default function Navbar() {
               onClick={() => scrollToSection("products")}
               className="outline-none"
             >
-              PRODUCTOS
+              {t("productos")}
             </button>
           </li>
           <li className="hover:text-primary cursor-pointer transition-colors">
@@ -165,21 +191,19 @@ export default function Navbar() {
               onClick={() => scrollToSection("contact")}
               className="outline-none"
             >
-              CONTACTO
+              {t("contacto")}
             </button>
           </li>
           <li className="hover:text-primary cursor-pointer transition-colors">
-            ALGO MAS?
+            {t("algoMas")}
           </li>
         </ul>
-
         <button
           onClick={toggleLanguage}
           className="bg-white text-gray-700 hover:text-primary hover:bg-gray-50 px-5 py-4 rounded-full font-medium transition-all duration-200 border border-gray-200 text-[12px] hidden md:block"
         >
           {currentLanguage}
         </button>
-
         <button
           className="md:hidden fixed right-3 z-50 p-3 bg-white rounded-full border border-primary"
           onClick={toggleMobileMenu}
@@ -191,7 +215,6 @@ export default function Navbar() {
           )}
         </button>
       </nav>
-
       {shouldRenderMobileMenu && (
         <div
           ref={menuPanelRef}
@@ -201,11 +224,11 @@ export default function Navbar() {
             <nav className="flex-1 flex justify-center items-center">
               <ul className="space-y-8 text-center">
                 {[
-                  { label: "INICIO", id: "hero" },
-                  { label: "NOSOTROS", id: "about" },
-                  { label: "PRODUCTOS", id: "products" },
-                  { label: "CONTACTO", id: "contact" },
-                  { label: "ALGO MAS?", id: "" },
+                  { label: t("inicio"), id: "hero" },
+                  { label: t("nosotros"), id: "about" },
+                  { label: t("productos"), id: "products" },
+                  { label: t("contacto"), id: "contact" },
+                  { label: t("algoMas"), id: "" },
                 ].map(({ label, id }, i) => (
                   <li key={label}>
                     <button
@@ -221,7 +244,6 @@ export default function Navbar() {
                 ))}
               </ul>
             </nav>
-
             <div className="pb-8">
               <button
                 onClick={toggleLanguage}

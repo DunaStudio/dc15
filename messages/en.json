@@ -1,0 +1,154 @@
+{
+  "navbar": {
+    "inicio": "HOME",
+    "nosotros": "ABOUT US",
+    "productos": "PRODUCTS",
+    "contacto": "CONTACT",
+    "algoMas": "SOMETHING ELSE?"
+  },
+  "hero": {
+    "title1": "Tires created to perform,",
+    "title2": "designed to last",
+    "description": "Discover our range of high-performance tires and inner tubes, designed to offer durability and efficiency in every application.",
+    "button": "Get to know us"
+  },
+  "about": {
+    "steps": {
+      "0": {
+        "title": "DC15",
+        "subtitle": "Industrial Tire Specialists",
+        "content": "At DC15 we are specialists in the design, development, marketing and import of tires and tubes for agricultural, logistics and industrial machinery."
+      },
+      "1": {
+        "title": "Engineering Quality",
+        "subtitle": "Optimized Compounds",
+        "content": "We develop optimized compounds for maximum abrasion resistance and reinforced casings to support high loads."
+      },
+      "2": {
+        "title": "Operational Efficiency",
+        "subtitle": "Adapted to Every Terrain",
+        "content": "We create tread patterns adapted to each terrain, from agricultural fields to urban surfaces, guaranteeing stable and safe traction."
+      },
+      "3": {
+        "title": "Constant Innovation",
+        "subtitle": "Comprehensive Quality Control",
+        "content": "We apply comprehensive quality control, from technical development to delivery, ensuring that each tire meets the highest performance standards."
+      },
+      "4": {
+        "title": "Our Catalog",
+        "subtitle": "Specialized Solutions",
+        "content": "With a complete catalog that includes solutions for tractors, forklifts and aerial platforms, DC15 has established itself as a reliable partner for the OEM and aftermarket."
+      },
+      "5": {
+        "title": "Choose DC15",
+        "subtitle": "Commitment to Excellence",
+        "content": "Choose a brand that is committed to durability, efficiency and superior technical performance."
+      }
+    }
+  },
+  "products": {
+    "title1": "Products that make",
+    "title2": "the difference",
+    "description": "Technology, durability and performance to face the most demanding challenges with maximum reliability.",
+    "items": {
+      "mr1": {
+        "name": "MR-1",
+        "description": "Reinforced casing for high-demand agricultural tasks."
+      },
+      "r2": {
+        "name": "R-2",
+        "description": "Reliable traction for intensive rural operations"
+      },
+      "th201": {
+        "name": "TH201",
+        "description": "Stability and control for precise industrial maneuvers."
+      },
+      "th202": {
+        "name": "TH202",
+        "description": "High resistance for forklifts in demanding environments."
+      },
+      "th900": {
+        "name": "TH900",
+        "description": "Robust performance in continuous load applications."
+      }
+    },
+    "prevButton": "Previous product",
+    "nextButton": "Next product",
+    "goToPage": "Go to page"
+  },
+  "ubication": {
+    "title1": "Always close",
+    "title2": "to you",
+    "description": "We are expanding our distribution network. Contact us to find the nearest point.",
+    "button": "Contact us"
+  },
+  "camioneta": {
+    "title": "Committed to sustainability and efficiency in our products.",
+    "description": "At DC15, we strive to use materials that minimize environmental impact. Our advanced recycling technologies allow us to produce tires that are durable and sustainable.",
+    "efficiency": {
+      "title": "Efficiency",
+      "description": "We design our tires to maximize performance with the least possible use of material. This reduces waste, improves energy efficiency and extends the life of each tire."
+    },
+    "recycling": {
+      "title": "Recycling",
+      "description": "We incorporate recycling practices at every stage of the process, from manufacturing to end of tire life. We are committed to responsible production that cares for our planet."
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Want to know more about our products or find the nearest point of sale? Fill out the form and a DC15 specialist will contact you shortly.",
+    "form": {
+      "nombre": "Name",
+      "apellido": "Last Name",
+      "telefono": "Phone",
+      "email": "Email",
+      "tipoNeumatico": "What type of tire are you looking for?",
+      "comentarios": "Comments",
+      "placeholders": {
+        "nombre": "Enter your name",
+        "apellido": "Enter your last name",
+        "telefono": "Enter your phone",
+        "email": "Enter your email",
+        "comentarios": "Write your inquiry here"
+      },
+      "tipoOptions": {
+        "agricola": "Agricultural / Industrial",
+        "auto": "Car / Truck",
+        "otros": "Others"
+      },
+      "submit": "Send",
+      "submitting": "Sending...",
+      "success": "Message sent successfully! We will contact you soon.",
+      "error": "Error sending message. Please try again."
+    }
+  },
+  "footer": {
+    "inicio": "Home",
+    "nosotros": "About Us",
+    "productos": "Products",
+    "otroCosa": "Something else",
+    "contacto": "Contact",
+    "copyright": "© 2025 DC15. All rights reserved.",
+    "developed": "Developed by"
+  },
+  "api": {
+    "contact": {
+      "missingFields": "Required fields are missing.",
+      "success": "Email sent successfully",
+      "error": "Error sending email",
+      "subject": "New Contact from {nombre} {apellido} from the website",
+      "emailTemplate": {
+        "title": "New contact message",
+        "nombre": "Name",
+        "apellido": "Last Name",
+        "email": "Email",
+        "telefono": "Phone",
+        "tipoNeumatico": "Tire Type of Interest",
+        "comentarios": "Comments",
+        "noPhone": "Not provided",
+        "noType": "Not specified",
+        "noComments": "No comments."
+      }
+    }
+  }
+}

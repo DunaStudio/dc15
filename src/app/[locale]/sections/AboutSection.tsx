@@ -1,54 +1,10 @@
 "use client";
-
 import { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
-
-const storySteps = [
-  {
-    id: 0,
-    title: "DC15",
-    subtitle: "Especialistas en Neumáticos Industriales",
-    content:
-      "En DC15 somos especialistas en el diseño, desarrollo, comercialización e importación de neumáticos y cámaras para maquinaria agrícola, logística e industrial.",
-  },
-  {
-    id: 1,
-    title: "Calidad de Ingeniería",
-    subtitle: "Compuestos Optimizados",
-    content:
-      "Desarrollamos compuestos optimizados para máxima resistencia a la abrasión y carcasas reforzadas para soportar cargas elevadas.",
-  },
-  {
-    id: 2,
-    title: "Eficiencia Operativa",
-    subtitle: "Adaptados a Cada Terreno",
-    content:
-      "Creamos patrones de banda adaptados a cada terreno, desde campos agrícolas hasta superficies urbanas, garantizando una tracción estable y segura.",
-  },
-  {
-    id: 3,
-    title: "Innovación Constante",
-    subtitle: "Control de Calidad Integral",
-    content:
-      "Aplicamos un control de calidad integral, desde el desarrollo técnico hasta la entrega, asegurando que cada neumático cumpla con los más altos estándares de rendimiento.",
-  },
-  {
-    id: 4,
-    title: "Nuestro Catálogo",
-    subtitle: "Soluciones Especializadas",
-    content:
-      "Con un catálogo completo que incluye soluciones para tractores, montacargas y plataformas elevadoras, DC15 se ha consolidado como un socio confiable para el mercado OEM y aftermarket.",
-  },
-  {
-    id: 5,
-    title: "Elija DC15",
-    subtitle: "Compromiso con la Excelencia",
-    content:
-      "Elija una marca que se compromete con la durabilidad, la eficiencia y el rendimiento técnico superior.",
-  },
-];
+import { useTranslations } from "next-intl";
 
 export default function AboutSection() {
+  const t = useTranslations("about");
   const [activeStep, setActiveStep] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -58,9 +14,47 @@ export default function AboutSection() {
   const textRef = useRef<HTMLParagraphElement>(null);
   const timelineRef = useRef<gsap.core.Timeline | null>(null);
 
+  const storySteps = [
+    {
+      id: 0,
+      title: t("steps.0.title"),
+      subtitle: t("steps.0.subtitle"),
+      content: t("steps.0.content"),
+    },
+    {
+      id: 1,
+      title: t("steps.1.title"),
+      subtitle: t("steps.1.subtitle"),
+      content: t("steps.1.content"),
+    },
+    {
+      id: 2,
+      title: t("steps.2.title"),
+      subtitle: t("steps.2.subtitle"),
+      content: t("steps.2.content"),
+    },
+    {
+      id: 3,
+      title: t("steps.3.title"),
+      subtitle: t("steps.3.subtitle"),
+      content: t("steps.3.content"),
+    },
+    {
+      id: 4,
+      title: t("steps.4.title"),
+      subtitle: t("steps.4.subtitle"),
+      content: t("steps.4.content"),
+    },
+    {
+      id: 5,
+      title: t("steps.5.title"),
+      subtitle: t("steps.5.subtitle"),
+      content: t("steps.5.content"),
+    },
+  ];
+
   const animateContent = (direction: "in" | "out" = "in") => {
     if (!contentRef.current) return;
-
     if (timelineRef.current) {
       timelineRef.current.kill();
     }
@@ -83,7 +77,6 @@ export default function AboutSection() {
       });
     } else {
       gsap.set(elements, { opacity: 0, y: 30 });
-
       timelineRef.current = gsap.timeline();
       timelineRef.current.to(elements, {
         opacity: 1,
@@ -109,7 +102,6 @@ export default function AboutSection() {
         const scrollWithinSection = Math.abs(sectionTop);
         const maxScrollWithinSection = sectionHeight - windowHeight;
         const progress = scrollWithinSection / maxScrollWithinSection;
-
         const newStep = Math.min(
           Math.floor(progress * storySteps.length),
           storySteps.length - 1
@@ -127,7 +119,7 @@ export default function AboutSection() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [activeStep]);
+  }, [activeStep, storySteps.length]);
 
   useEffect(() => {
     animateContent("in");
@@ -159,7 +151,6 @@ export default function AboutSection() {
               ))}
             </div>
           </div>
-
           <div ref={contentRef} className="text-center space-y-8">
             <div
               ref={counterRef}
@@ -168,7 +159,6 @@ export default function AboutSection() {
               {String(activeStep + 1).padStart(2, "0")} /{" "}
               {String(storySteps.length).padStart(2, "0")}
             </div>
-
             <div className="space-y-4">
               <div className="overflow-hidden">
                 <h1
@@ -187,7 +177,6 @@ export default function AboutSection() {
                 </h2>
               </div>
             </div>
-
             <div className="max-w-2xl w-[80%] mx-auto space-y-6 overflow-hidden">
               <p
                 ref={textRef}
@@ -196,7 +185,6 @@ export default function AboutSection() {
                 {storySteps[activeStep].content}
               </p>
             </div>
-
             {activeStep < storySteps.length - 1 && (
               <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
                 <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">

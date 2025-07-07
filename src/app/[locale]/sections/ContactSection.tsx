@@ -1,9 +1,11 @@
 "use client";
-
 import type React from "react";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 export default function ContactSection() {
+  const t = useTranslations("contact");
+
   const [formData, setFormData] = useState({
     nombre: "",
     apellido: "",
@@ -52,7 +54,7 @@ export default function ContactSection() {
       if (response.ok) {
         setStatusMessage({
           type: "success",
-          text: "¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.",
+          text: t("form.success"),
         });
         setFormData({
           nombre: "",
@@ -68,7 +70,7 @@ export default function ContactSection() {
     } catch (error) {
       setStatusMessage({
         type: "error",
-        text: "Error al enviar el mensaje. Por favor, inténtalo de nuevo.",
+        text: t("form.error"),
       });
     } finally {
       setIsSubmitting(false);
@@ -87,14 +89,11 @@ export default function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div className="bg-black/70 backdrop-blur-sm p-8 rounded-lg border border-white">
             <h2 className="font-main text-[38px] md:text-[46px] lg:text-[52px] text-white mb-6">
-              Contacto
+              {t("title")}
             </h2>
             <p className="text-[14px] md:text-[18px] text-neutral-300 mb-8">
-              ¿Querés saber más sobre nuestros productos o encontrar el punto de
-              venta más cercano? Completá el formulario y un especialista de
-              DC15 se pondrá en contacto a la brevedad.
+              {t("description")}
             </p>
-
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
@@ -102,7 +101,7 @@ export default function ContactSection() {
                     htmlFor="nombre"
                     className="block text-sm font-medium text-white mb-2"
                   >
-                    Nombre
+                    {t("form.nombre")}
                   </label>
                   <input
                     type="text"
@@ -110,7 +109,7 @@ export default function ContactSection() {
                     name="nombre"
                     value={formData.nombre}
                     onChange={handleInputChange}
-                    placeholder="Ingresá tu nombre"
+                    placeholder={t("form.placeholders.nombre")}
                     className="w-full px-0 py-3 border-0 border-b border-neutral-600 bg-transparent focus:outline-none focus:border-white transition-all text-white placeholder:text-neutral-500"
                     required
                   />
@@ -120,7 +119,7 @@ export default function ContactSection() {
                     htmlFor="apellido"
                     className="block text-sm font-medium text-white mb-2"
                   >
-                    Apellido
+                    {t("form.apellido")}
                   </label>
                   <input
                     type="text"
@@ -128,20 +127,19 @@ export default function ContactSection() {
                     name="apellido"
                     value={formData.apellido}
                     onChange={handleInputChange}
-                    placeholder="Ingresá tu apellido"
+                    placeholder={t("form.placeholders.apellido")}
                     className="w-full px-0 py-3 border-0 border-b border-neutral-600 bg-transparent focus:outline-none focus:border-white transition-all text-white placeholder:text-neutral-500"
                     required
                   />
                 </div>
               </div>
-
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label
                     htmlFor="telefono"
                     className="block text-sm font-medium text-white mb-2"
                   >
-                    Teléfono
+                    {t("form.telefono")}
                   </label>
                   <input
                     type="tel"
@@ -149,7 +147,7 @@ export default function ContactSection() {
                     name="telefono"
                     value={formData.telefono}
                     onChange={handleInputChange}
-                    placeholder="Ingresá tu teléfono"
+                    placeholder={t("form.placeholders.telefono")}
                     className="w-full px-0 py-3 border-0 border-b border-neutral-600 bg-transparent focus:outline-none focus:border-white transition-all text-white placeholder:text-neutral-500"
                     required
                   />
@@ -159,7 +157,7 @@ export default function ContactSection() {
                     htmlFor="email"
                     className="block text-sm font-medium text-white mb-2"
                   >
-                    Email
+                    {t("form.email")}
                   </label>
                   <input
                     type="email"
@@ -167,55 +165,54 @@ export default function ContactSection() {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    placeholder="Ingresá tu email"
+                    placeholder={t("form.placeholders.email")}
                     className="w-full px-0 py-3 border-0 border-b border-neutral-600 bg-transparent focus:outline-none focus:border-white transition-all text-white placeholder:text-neutral-500"
                     required
                   />
                 </div>
               </div>
-
               <div>
                 <label className="block text-sm font-medium text-white mb-4">
-                  ¿Qué tipo de neumático estás buscando?
+                  {t("form.tipoNeumatico")}
                 </label>
                 <div className="grid grid-cols-3 gap-4">
-                  {["Agrícola / Industrial", "Auto / Camioneta", "Otros"].map(
-                    (tipo) => (
-                      <button
-                        key={tipo}
-                        type="button"
-                        onClick={() => handleTipoNeumaticoChange(tipo)}
-                        className={`px-4 py-3 rounded-lg border transition-all font-medium ${
-                          formData.tipoNeumatico === tipo
-                            ? "bg-white text-primary border-white"
-                            : "bg-neutral-800/60 text-gray-300 border-neutral-600 hover:border-white hover:bg-neutral-700/60 hover:text-white"
-                        }`}
-                      >
-                        {tipo}
-                      </button>
-                    )
-                  )}
+                  {[
+                    { key: "agricola", label: t("form.tipoOptions.agricola") },
+                    { key: "auto", label: t("form.tipoOptions.auto") },
+                    { key: "otros", label: t("form.tipoOptions.otros") },
+                  ].map((tipo) => (
+                    <button
+                      key={tipo.key}
+                      type="button"
+                      onClick={() => handleTipoNeumaticoChange(tipo.label)}
+                      className={`px-4 py-3 rounded-lg border transition-all font-medium ${
+                        formData.tipoNeumatico === tipo.label
+                          ? "bg-white text-primary border-white"
+                          : "bg-neutral-800/60 text-gray-300 border-neutral-600 hover:border-white hover:bg-neutral-700/60 hover:text-white"
+                      }`}
+                    >
+                      {tipo.label}
+                    </button>
+                  ))}
                 </div>
               </div>
-
               <div>
                 <label
                   htmlFor="comentarios"
                   className="block text-sm font-medium text-white mb-2"
                 >
-                  Comentarios
+                  {t("form.comentarios")}
                 </label>
                 <textarea
                   id="comentarios"
                   name="comentarios"
                   value={formData.comentarios}
                   onChange={handleInputChange}
-                  placeholder="Escribí aquí tu consulta"
+                  placeholder={t("form.placeholders.comentarios")}
                   rows={4}
                   className="w-full px-0 py-3 border-0 border-b-2 border-neutral-600 bg-transparent focus:outline-none focus:border-white transition-all resize-vertical text-white placeholder:text-neutral-500"
                 />
               </div>
-
               {statusMessage.text && (
                 <div
                   className={`p-3 rounded-md text-sm ${
@@ -227,17 +224,15 @@ export default function ContactSection() {
                   {statusMessage.text}
                 </div>
               )}
-
               <button
                 type="submit"
                 disabled={isSubmitting}
                 className="bg-white text-primary px-8 py-3 rounded-lg hover:bg-white transition-all font-medium transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isSubmitting ? "Enviando..." : "Enviar"}
+                {isSubmitting ? t("form.submitting") : t("form.submit")}
               </button>
             </form>
           </div>
-
           <div className="h-full min-h-[600px]">
             <div className="w-full h-full rounded-lg overflow-hidden border-2 border-neutral-700/50 bg-black/30 backdrop-blur-sm">
               <iframe

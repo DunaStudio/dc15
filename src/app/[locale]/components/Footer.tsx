@@ -1,9 +1,11 @@
 "use client";
-
 import Image from "next/image";
 import Logo from "@/assets/LogoDC15-Fondo.png";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
+  const t = useTranslations("footer");
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -13,6 +15,7 @@ export default function Footer() {
       });
     }
   };
+
   return (
     <footer className="bg-black text-white">
       <div className="max-w-7xl mx-auto px-4 py-8">
@@ -33,42 +36,40 @@ export default function Footer() {
               </div>
             </div>
           </div>
-
           <div className="flex flex-wrap gap-6 text-sm">
             <button
               onClick={() => scrollToSection("hero")}
               className="hover:text-gray-300 transition-colors"
             >
-              Inicio
+              {t("inicio")}
             </button>
             <button
               onClick={() => scrollToSection("about")}
               className="hover:text-gray-300 transition-colors"
             >
-              Nosotros
+              {t("nosotros")}
             </button>
             <button
               onClick={() => scrollToSection("products")}
               className="hover:text-gray-300 transition-colors"
             >
-              Productos
+              {t("productos")}
             </button>
             <a href="#" className="hover:text-gray-300 transition-colors">
-              Otro cosa
+              {t("otroCosa")}
             </a>
             <button
               onClick={() => scrollToSection("contact")}
               className="hover:text-gray-300 transition-colors"
             >
-              Contacto
+              {t("contacto")}
             </button>
           </div>
         </div>
-
         <div className="flex flex-col md:flex-row justify-between items-center mt-8 pt-4 border-t border-gray-800 text-sm">
-          <p>© 2025 DC15. Todos los derechos reservados.</p>
+          <p>{t("copyright")}</p>
           <p>
-            Desarrollado por <span className="font-bold">Duna Studio</span>
+            {t("developed")} <span className="font-bold">Duna Studio</span>
           </p>
         </div>
       </div>

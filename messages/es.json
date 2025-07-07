@@ -1,0 +1,154 @@
+{
+  "navbar": {
+    "inicio": "INICIO",
+    "nosotros": "NOSOTROS",
+    "productos": "PRODUCTOS",
+    "contacto": "CONTACTO",
+    "algoMas": "ALGO MAS?"
+  },
+  "hero": {
+    "title1": "Neumáticos creados para rendir,",
+    "title2": "diseñados para durar",
+    "description": "Descubre nuestra gama de neumáticos y cámaras de aire de alto rendimiento, diseñados para ofrecer durabilidad y eficiencia en cada aplicación.",
+    "button": "Conocenos"
+  },
+  "about": {
+    "steps": {
+      "0": {
+        "title": "DC15",
+        "subtitle": "Especialistas en Neumáticos Industriales",
+        "content": "En DC15 somos especialistas en el diseño, desarrollo, comercialización e importación de neumáticos y cámaras para maquinaria agrícola, logística e industrial."
+      },
+      "1": {
+        "title": "Calidad de Ingeniería",
+        "subtitle": "Compuestos Optimizados",
+        "content": "Desarrollamos compuestos optimizados para máxima resistencia a la abrasión y carcasas reforzadas para soportar cargas elevadas."
+      },
+      "2": {
+        "title": "Eficiencia Operativa",
+        "subtitle": "Adaptados a Cada Terreno",
+        "content": "Creamos patrones de banda adaptados a cada terreno, desde campos agrícolas hasta superficies urbanas, garantizando una tracción estable y segura."
+      },
+      "3": {
+        "title": "Innovación Constante",
+        "subtitle": "Control de Calidad Integral",
+        "content": "Aplicamos un control de calidad integral, desde el desarrollo técnico hasta la entrega, asegurando que cada neumático cumpla con los más altos estándares de rendimiento."
+      },
+      "4": {
+        "title": "Nuestro Catálogo",
+        "subtitle": "Soluciones Especializadas",
+        "content": "Con un catálogo completo que incluye soluciones para tractores, montacargas y plataformas elevadoras, DC15 se ha consolidado como un socio confiable para el mercado OEM y aftermarket."
+      },
+      "5": {
+        "title": "Elija DC15",
+        "subtitle": "Compromiso con la Excelencia",
+        "content": "Elija una marca que se compromete con la durabilidad, la eficiencia y el rendimiento técnico superior."
+      }
+    }
+  },
+  "products": {
+    "title1": "Productos que marcan",
+    "title2": "la diferencia",
+    "description": "Tecnología, durabilidad y rendimiento para enfrentar los desafíos más exigentes con la máxima confiabilidad.",
+    "items": {
+      "mr1": {
+        "name": "MR-1",
+        "description": "Carcasa reforzada para tareas agrícolas de alta exigencia."
+      },
+      "r2": {
+        "name": "R-2",
+        "description": "Tracción confiable para operaciones rurales intensivas"
+      },
+      "th201": {
+        "name": "TH201",
+        "description": "Estabilidad y control para maniobras industriales precisas."
+      },
+      "th202": {
+        "name": "TH202",
+        "description": "Alta resistencia para montacargas en entornos exigentes."
+      },
+      "th900": {
+        "name": "TH900",
+        "description": "Desempeño robusto en aplicaciones de carga continua."
+      }
+    },
+    "prevButton": "Producto anterior",
+    "nextButton": "Siguiente producto",
+    "goToPage": "Ir a la página"
+  },
+  "ubication": {
+    "title1": "Siempre cerca",
+    "title2": "tuyo",
+    "description": "Estamos expandiendo nuestra red de distribución. Contactanos para conocer el punto más cercano.",
+    "button": "Contáctanos"
+  },
+  "camioneta": {
+    "title": "Comprometidos con la sostenibilidad Y la eficiencia en nuestros productos.",
+    "description": "En DC15, nos esforzamos por utilizar materiales que minimizan el impacto ambiental. Nuestras tecnologías de reciclaje avanzadas nos permiten producir neumáticos que son duraderos y sostenibles.",
+    "efficiency": {
+      "title": "Eficiencia",
+      "description": "Diseñamos nuestros neumáticos para maximizar el rendimiento con el menor uso posible de material. Esto reduce el desperdicio, mejora la eficiencia energética y prolonga la vida útil de cada neumático."
+    },
+    "recycling": {
+      "title": "Reciclaje",
+      "description": "Incorporamos prácticas de reciclaje en cada etapa del proceso, desde la fabricación hasta el fin de vida útil del neumático. Apostamos por una producción responsable que cuida nuestro planeta."
+    }
+  },
+  "contact": {
+    "title": "Contacto",
+    "description": "¿Querés saber más sobre nuestros productos o encontrar el punto de venta más cercano? Completá el formulario y un especialista de DC15 se pondrá en contacto a la brevedad.",
+    "form": {
+      "nombre": "Nombre",
+      "apellido": "Apellido",
+      "telefono": "Teléfono",
+      "email": "Email",
+      "tipoNeumatico": "¿Qué tipo de neumático estás buscando?",
+      "comentarios": "Comentarios",
+      "placeholders": {
+        "nombre": "Ingresá tu nombre",
+        "apellido": "Ingresá tu apellido",
+        "telefono": "Ingresá tu teléfono",
+        "email": "Ingresá tu email",
+        "comentarios": "Escribí aquí tu consulta"
+      },
+      "tipoOptions": {
+        "agricola": "Agrícola / Industrial",
+        "auto": "Auto / Camioneta",
+        "otros": "Otros"
+      },
+      "submit": "Enviar",
+      "submitting": "Enviando...",
+      "success": "¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.",
+      "error": "Error al enviar el mensaje. Por favor, inténtalo de nuevo."
+    }
+  },
+  "footer": {
+    "inicio": "Inicio",
+    "nosotros": "Nosotros",
+    "productos": "Productos",
+    "otroCosa": "Otro cosa",
+    "contacto": "Contacto",
+    "copyright": "© 2025 DC15. Todos los derechos reservados.",
+    "developed": "Desarrollado por"
+  },
+  "api": {
+    "contact": {
+      "missingFields": "Faltan campos requeridos.",
+      "success": "Correo enviado exitosamente",
+      "error": "Error al enviar el correo",
+      "subject": "Nuevo Contacto de {nombre} {apellido} desde la web",
+      "emailTemplate": {
+        "title": "Nuevo mensaje de contacto",
+        "nombre": "Nombre",
+        "apellido": "Apellido",
+        "email": "Email",
+        "telefono": "Teléfono",
+        "tipoNeumatico": "Tipo de Neumático de Interés",
+        "comentarios": "Comentarios",
+        "noPhone": "No proporcionado",
+        "noType": "No especificado",
+        "noComments": "Sin comentarios."
+      }
+    }
+  }
+}
