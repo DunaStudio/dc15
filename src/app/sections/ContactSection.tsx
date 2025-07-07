@@ -78,18 +78,16 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative py-16 overflow-hidden"
+      className="relative py-8 lg:py-16 overflow-hidden"
       style={{
         fontFamily: "Be Vietnam Pro, sans-serif",
       }}
     >
       <div className="relative z-10 max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="bg-black/70 backdrop-blur-sm p-8 rounded-lg border border-white">
-            <h2 className="font-main text-[38px] md:text-[46px] lg:text-[52px] text-white mb-6">
-              Contacto
-            </h2>
-            <p className="text-[14px] md:text-[18px] text-neutral-300 mb-8">
+          <div className="bg-white  p-8 rounded-lg border">
+            <h2 className="text-title text-black mb-6">Contacto</h2>
+            <p className="text-subtitle text-black mb-8">
               ¿Querés saber más sobre nuestros productos o encontrar el punto de
               venta más cercano? Completá el formulario y un especialista de
               DC15 se pondrá en contacto a la brevedad.
@@ -100,7 +98,7 @@ export default function ContactSection() {
                 <div>
                   <label
                     htmlFor="nombre"
-                    className="block text-sm font-medium text-white mb-2"
+                    className="block text-sm font-medium text-black mb-2"
                   >
                     Nombre
                   </label>
@@ -111,14 +109,14 @@ export default function ContactSection() {
                     value={formData.nombre}
                     onChange={handleInputChange}
                     placeholder="Ingresá tu nombre"
-                    className="w-full px-0 py-3 border-0 border-b border-neutral-600 bg-transparent focus:outline-none focus:border-white transition-all text-white placeholder:text-neutral-500"
+                    className="w-full px-0 py-3 border-0 border-b border-neutral-600 bg-transparent focus:outline-none focus:border-black transition-all text-black placeholder:text-neutral-500"
                     required
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="apellido"
-                    className="block text-sm font-medium text-white mb-2"
+                    className="block text-sm font-medium text-black mb-2"
                   >
                     Apellido
                   </label>
@@ -129,7 +127,7 @@ export default function ContactSection() {
                     value={formData.apellido}
                     onChange={handleInputChange}
                     placeholder="Ingresá tu apellido"
-                    className="w-full px-0 py-3 border-0 border-b border-neutral-600 bg-transparent focus:outline-none focus:border-white transition-all text-white placeholder:text-neutral-500"
+                    className="w-full px-0 py-3 border-0 border-b border-neutral-600 bg-transparent focus:outline-none focus:border-black transition-all text-black placeholder:text-neutral-500"
                     required
                   />
                 </div>
@@ -139,7 +137,7 @@ export default function ContactSection() {
                 <div>
                   <label
                     htmlFor="telefono"
-                    className="block text-sm font-medium text-white mb-2"
+                    className="block text-sm font-medium text-black mb-2"
                   >
                     Teléfono
                   </label>
@@ -150,14 +148,14 @@ export default function ContactSection() {
                     value={formData.telefono}
                     onChange={handleInputChange}
                     placeholder="Ingresá tu teléfono"
-                    className="w-full px-0 py-3 border-0 border-b border-neutral-600 bg-transparent focus:outline-none focus:border-white transition-all text-white placeholder:text-neutral-500"
+                    className="w-full px-0 py-3 border-0 border-b border-neutral-600 bg-transparent focus:outline-none focus:border-black transition-all text-black placeholder:text-neutral-500"
                     required
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium text-white mb-2"
+                    className="block text-sm font-medium text-black mb-2"
                   >
                     Email
                   </label>
@@ -168,27 +166,27 @@ export default function ContactSection() {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="Ingresá tu email"
-                    className="w-full px-0 py-3 border-0 border-b border-neutral-600 bg-transparent focus:outline-none focus:border-white transition-all text-white placeholder:text-neutral-500"
+                    className="w-full px-0 py-3 border-0 border-b border-neutral-600 bg-transparent focus:outline-none focus:border-black transition-all text-black placeholder:text-neutral-500"
                     required
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-white mb-4">
+                <label className="block text-sm font-medium text-black mb-4">
                   ¿Qué tipo de neumático estás buscando?
                 </label>
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
                   {["Agrícola / Industrial", "Auto / Camioneta", "Otros"].map(
                     (tipo) => (
                       <button
                         key={tipo}
                         type="button"
                         onClick={() => handleTipoNeumaticoChange(tipo)}
-                        className={`px-4 py-3 rounded-lg border transition-all font-medium ${
+                        className={`px-4 py-3 rounded-lg border transition-all font-medium text-[12px] md:text-[14px] ${
                           formData.tipoNeumatico === tipo
-                            ? "bg-white text-primary border-white"
-                            : "bg-neutral-800/60 text-gray-300 border-neutral-600 hover:border-white hover:bg-neutral-700/60 hover:text-white"
+                            ? "bg-primary text-white border-primary"
+                            : "bg-white text-primary border-primary hover:border-white hover:bg-neutral-700/60 hover:text-white"
                         }`}
                       >
                         {tipo}
@@ -239,7 +237,7 @@ export default function ContactSection() {
           </div>
 
           <div className="h-full min-h-[600px]">
-            <div className="w-full h-full rounded-lg overflow-hidden border-2 border-neutral-700/50 bg-black/30 backdrop-blur-sm">
+            <div className="w-full h-full rounded-lg overflow-hidden ">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.8234567890123!2d-68.5213473!3d-31.5354642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96813ffd11b5e73b%3A0x2d0b475afdbbede7!2sAntonino%20Aberastain%20Sur%20137%20Piso%3A2%2C%20J5400%20San%20Juan!5e0!3m2!1ses!2sar!4v1234567890123!5m2!1ses!2sar"
                 width="100%"

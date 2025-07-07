@@ -15,17 +15,17 @@ export default function Footer() {
   };
   return (
     <footer className="bg-black text-white">
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-8">
-          <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-4">
+      <div className="max-w-7xl mx-auto px-4 py-4 lg:py-8">
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-8">
+          <div className="flex flex-col gap-4 w-full">
+            <div className="flex flex-col lg:flex-row items-center gap-4 mx-auto lg:mx-0 w-full lg:w-auto">
               <Image
                 src={Logo || "/placeholder.svg"}
                 alt="Logo DC15"
                 width={60}
                 height={60}
               />
-              <div className="text-sm">
+              <div className="text-sm text-center lg:text-left flex flex-col gap-2">
                 <p>Antonino Aberastain Sur 137 Piso: 2</p>
                 <p>J5400 San Juan</p>
                 <p>info@dc15neumaticos.com</p>
@@ -34,38 +34,38 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-6 text-sm">
+          <div className="flex flex-col items-center lg:items-start lg:flex-row gap-6 text-sm mx-auto lg:mx-0">
             <button
               onClick={() => scrollToSection("hero")}
-              className="hover:text-gray-300 transition-colors"
+              className="hover:text-gray-300 transition-colors w-max "
             >
               Inicio
             </button>
             <button
               onClick={() => scrollToSection("about")}
-              className="hover:text-gray-300 transition-colors"
+              className="hover:text-gray-300 transition-colors w-max"
             >
               Nosotros
             </button>
             <button
               onClick={() => scrollToSection("products")}
-              className="hover:text-gray-300 transition-colors"
+              className="hover:text-gray-300 transition-colors w-max"
             >
               Productos
             </button>
-            <a href="#" className="hover:text-gray-300 transition-colors">
+            <a href="#" className="hover:text-gray-300 transition-colors w-max">
               Otro cosa
             </a>
             <button
               onClick={() => scrollToSection("contact")}
-              className="hover:text-gray-300 transition-colors"
+              className="hover:text-gray-300 transition-colors w-max"
             >
               Contacto
             </button>
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center mt-8 pt-4 border-t border-gray-800 text-sm">
+        <div className="flex flex-col lg:flex-row justify-between items-center mt-8 pt-4 border-t border-gray-800 text-sm gap-2">
           <p>© 2025 DC15. Todos los derechos reservados.</p>
           <p>
             Desarrollado por <span className="font-bold">Duna Studio</span>

@@ -63,7 +63,7 @@ export default function UbicationBanner() {
               <div className="overflow-hidden">
                 <h2
                   ref={ubicationTitleRefLineOne}
-                  className="text-primary font-main text-[38px] md:text-[46px] lg:text-[52px] w-full font-[400] leading-[1.2]"
+                  className="text-primary text-title w-full text-center lg:text-left"
                 >
                   Siempre cerca
                   <br />
@@ -72,7 +72,7 @@ export default function UbicationBanner() {
               <div className="overflow-hidden">
                 <h2
                   ref={ubicationTitleRefLineTwo}
-                  className="text-primary font-main text-[38px] md:text-[46px] lg:text-[52px] w-full font-[400] leading-[1.2]"
+                  className="text-primary text-title w-full text-center lg:text-left"
                 >
                   tuyo
                 </h2>
@@ -80,7 +80,7 @@ export default function UbicationBanner() {
             </div>
 
             <div className="flex-1 flex flex-col lg:items-end gap-6 w-full mt-10 lg:mt-0">
-              <p className="text-[14px] md:text-[18px] text-primary lg:max-w-[50%] text-start lg:text-end leading-[1.2] ">
+              <p className="text-subtitle text-primary lg:max-w-[50%] lg:text-end leading-[1.2] text-center">
                 Estamos expandiendo nuestra red de distribución. Contactanos
                 para conocer el punto más cercano.
               </p>

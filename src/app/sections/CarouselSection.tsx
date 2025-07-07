@@ -225,7 +225,7 @@ export default function CarouselSection() {
           <div className="overflow-hidden">
             <h2
               ref={titleRefLineOne}
-              className="text-white font-main text-[38px] md:text-[46px] lg:text-[52px] w-full font-[400] leading-[1.2] translate-y-full opacity-0"
+              className="text-white text-title w-full translate-y-full opacity-0 text-center lg:text-left"
             >
               Productos que marcan
             </h2>
@@ -233,7 +233,7 @@ export default function CarouselSection() {
           <div className="overflow-hidden">
             <h2
               ref={titleRefLineTwo}
-              className="text-white font-main text-[38px] md:text-[46px] lg:text-[52px] w-full font-[400] leading-[1.2] translate-y-full opacity-0"
+              className="text-white text-title w-full translate-y-full opacity-0 text-center lg:text-left"
             >
               la diferencia
             </h2>
@@ -242,7 +242,7 @@ export default function CarouselSection() {
           <div className="overflow-hidden mt-4">
             <p
               ref={paragraphRef}
-              className="text-[14px] md:text-[18px] text-white/80 max-w-3xl leading-[1.2] translate-y-full opacity-0"
+              className="text-subtitle text-white/80 max-w-3xl translate-y-full opacity-0 text-center lg:text-left"
             >
               Tecnología, durabilidad y rendimiento para enfrentar los desafíos
               más exigentes con la máxima confiabilidad.
@@ -278,27 +278,22 @@ export default function CarouselSection() {
                     ] || "w-full"
                   }`}
                 >
-                  <div className="relative rounded overflow-hidden min-h-[300px] group bg-white">
-                    <div className="absolute inset-0 flex items-center justify-center p-8 overflow-hidden bg-white">
+                  <div className="relative rounded overflow-hidden group bg-white flex flex-col h-full min-h-[350px]">
+                    <div className="flex-1 flex items-center justify-center p-6 bg-white min-h-[200px]">
                       <Image
                         src={producto.imagen || "/placeholder.svg"}
                         alt={producto.nombre}
                         width={300}
                         height={300}
-                        className="object-contain max-w-full max-h-full scale-125 group-hover:scale-150 transition-all ease-in-out duration-200"
+                        className="object-contain max-w-full max-h-full scale-110 group-hover:scale-125 transition-all ease-in-out duration-200"
                       />
                     </div>
 
-                    <div
-                      className="absolute bottom-0 w-full bg-white p-2 md:p-3 rounded shadow-lg border border-gray-100 lg:transition-transform lg:duration-300 lg:ease-out lg:translate-y-[calc(100%-55px)] lg:group-hover:translate-y-0 
-                    group-hover:bg-white/50 group-hover:backdrop-blur-md"
-                    >
-                      {" "}
-                      <h3 className="text-[12px] md:text-[14px] lg:text-[16px] font-bold text-black mb-3 mt-1">
-                        {" "}
+                    <div className="bg-white p-4 border-t border-gray-100">
+                      <h3 className="text-[14px] md:text-[16px] lg:text-[18px] font-bold text-black mb-2">
                         {producto.nombre}
                       </h3>
-                      <p className="text-gray-800 text-[12px] md:text-[14px] lg:text-[16px] leading-relaxed">
+                      <p className="text-gray-600 text-[12px] md:text-[14px] lg:text-[15px] leading-relaxed">
                         {producto.descripcion}
                       </p>
                     </div>
