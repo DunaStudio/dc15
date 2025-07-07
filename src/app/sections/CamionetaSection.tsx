@@ -46,11 +46,11 @@ export default function CamionetaSection() {
             </p>
           </div>
 
-          <div className="group bg-black/30 backdrop-blur-sm p-8 rounded-lg border border-white/10 transition-all duration-300 ease-in-out hover:bg-black/45 hover:backdrop-blur-md hover:border-[#20699B]/60 hover:shadow-lg hover:shadow-[#20699B]/20 hover:scale-[1.02]">
-            <h3 className="font-main text-[24px] md:text-[28px] lg:text-[32px] w-full font-[600] leading-[1.2] mb-4 text-white group-hover:text-[#20699B] transition-colors duration-300">
+          <div className="group bg-black/30 backdrop-blur-sm p-8 rounded-lg border border-white/10 transition-all duration-300 ease-in-out hover:bg-white hover:backdrop-blur-md hover:border-white/60">
+            <h3 className="font-main text-[24px] md:text-[28px] lg:text-[32px] w-full font-[600] leading-[1.2] mb-4 text-white group-hover:text-black transition-colors duration-300">
               Reciclaje
             </h3>
-            <p className="text-white/90 leading-relaxed group-hover:text-white transition-colors duration-300">
+            <p className="text-white/90 leading-relaxed group-hover:text-black transition-colors duration-300">
               Incorporamos prácticas de reciclaje en cada etapa del proceso,
               desde la fabricación hasta el fin de vida útil del neumático.
               Apostamos por una producción responsable que cuida nuestro
