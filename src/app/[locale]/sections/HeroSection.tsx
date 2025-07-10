@@ -57,7 +57,7 @@ export default function HeroSection() {
         playsInline
         className="fixed top-0 left-0 w-full h-full object-cover z-[-2] brightness-60"
       >
-        <source src="/HeroVideo.webm" type="video/webm" />
+        <source src="/HeroVideoFinal.webm" type="video/webm" />
       </video>
       <div
         className="fixed top-0 left-0 w-full h-full z-[-1] pointer-events-none transition-opacity duration-200"

@@ -93,6 +93,11 @@
       "description": "We incorporate recycling practices at every stage of the process, from manufacturing to end of tire life. We are committed to responsible production that cares for our planet."
     }
   },
+  "brands": {
+    "title1": "Brands we",
+    "title2": "work with",
+    "description": "We collaborate with leading brands in the industry to provide you with the best experience and quality in our services. Building strategic partnerships for your success."
+  },
   "contact": {
     "title": "Contact",
     "description": "Want to know more about our products or find the nearest point of sale? Fill out the form and a DC15 specialist will contact you shortly.",

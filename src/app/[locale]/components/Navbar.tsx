@@ -12,8 +12,6 @@ import { scrollToSection } from "@/lib/utils";
 
 export default function Navbar() {
   const t = useTranslations("navbar");
-  const router = useRouter();
-  const pathname = usePathname();
   const locale = useLocale();
 
   const [currentLanguage, setCurrentLanguage] = useState(
@@ -143,12 +141,7 @@ export default function Navbar() {
       <nav className="fixed top-0 left-0 right-0 z-50 flex flex-row justify-between items-center p-4 mx-auto max-w-7xl mt-5 text-[14px]">
         <div className="flex items-center">
           <Link href={"/"}>
-            <Image
-              src={Logo || "/placeholder.svg"}
-              alt="Logo"
-              width={60}
-              height={60}
-            />
+            <Image src={Logo} alt="Logo" width={85} height={85} />
           </Link>
         </div>
         <ul className="hidden md:flex flex-row gap-6 text-gray-700 bg-white rounded-full py-4 px-8 mx-auto border border-gray-200 text-[12px]">

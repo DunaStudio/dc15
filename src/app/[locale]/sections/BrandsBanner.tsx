@@ -1,20 +1,30 @@
 import Image from "next/image";
 import logoLorgian from "@/assets/images/lorgianLogo.png";
 import logoHaida from "@/assets/images/haidaLogo.png";
+import { useLocale, useTranslations } from "next-intl";
 
 export default function BrandsSection() {
+  const t = useTranslations("brands");
+
+  const locale = useLocale();
+
+  console.log("Locale actual:", locale);
+  console.log("Brands translations:", {
+    title1: t("title1"),
+    title2: t("title2"),
+    description: t("description"),
+  });
+
   return (
     <section className="w-full py-12 md:py-16 bg-gray-50">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 min-h-[200px] max-w-7xl mx-auto">
           <div className="flex flex-col justify-center space-y-6 pr-0 md:pr-8">
             <h2 className="text-title text-gray-900 text-center lg:text-start">
-              Marcas con las <br /> que trabajamos
+              {t("title1")} <br /> {t("title2")}
             </h2>
             <p className="text-subtitle text-neutral-500 text-center lg:text-start">
-              Colaboramos con marcas líderes en la industria para brindarte la
-              mejor experiencia y calidad en nuestros servicios. Construyendo
-              alianzas estratégicas para tu éxito.
+              {t("description")}
             </p>
           </div>
 

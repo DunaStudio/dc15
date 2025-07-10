@@ -93,6 +93,11 @@
       "description": "Incorporamos prácticas de reciclaje en cada etapa del proceso, desde la fabricación hasta el fin de vida útil del neumático. Apostamos por una producción responsable que cuida nuestro planeta."
     }
   },
+  "brands": {
+    "title1": "Marcas con las",
+    "title2": "que trabajamos",
+    "description": "Colaboramos con marcas líderes en la industria para brindarte la mejor experiencia y calidad en nuestros servicios. Construyendo alianzas estratégicas para tu éxito."
+  },
   "contact": {
     "title": "Contacto",
     "description": "¿Querés saber más sobre nuestros productos o encontrar el punto de venta más cercano? Completá el formulario y un especialista de DC15 se pondrá en contacto a la brevedad.",
