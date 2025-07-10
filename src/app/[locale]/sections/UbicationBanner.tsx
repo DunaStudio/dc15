@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { useTranslations } from "next-intl";
+import { scrollToSection } from "@/lib/utils";
 
 export default function UbicationBanner() {
   const t = useTranslations("ubication");
@@ -82,7 +83,10 @@ export default function UbicationBanner() {
               <p className="text-[14px] md:text-[18px] text-primary lg:max-w-[50%] text-start lg:text-end leading-[1.2] ">
                 {t("description")}
               </p>
-              <button className="bg-white text-[#20699B] px-6 py-4 rounded-full transition-all duration-200 text-[12px] md:text-[14px] lg:text-[16px] transform border border-[#20699B] font-main cursor-pointer hover:bg-primary hover:text-white mt-5 lg:mt-0">
+              <button
+                onClick={() => scrollToSection("contact")}
+                className="bg-white text-[#20699B] px-6 py-4 rounded-full transition-all duration-200 text-[12px] md:text-[14px] lg:text-[16px] transform border border-[#20699B] font-main cursor-pointer hover:bg-primary hover:text-white mt-5 lg:mt-0"
+              >
                 {t("button")}
               </button>
             </div>
