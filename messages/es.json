@@ -3,8 +3,7 @@
     "inicio": "INICIO",
     "nosotros": "NOSOTROS",
     "productos": "PRODUCTOS",
-    "contacto": "CONTACTO",
-    "algoMas": "ALGO MAS?"
+    "contacto": "CONTACTO"
   },
   "hero": {
     "title1": "Neumáticos creados para rendir,",
@@ -80,7 +79,7 @@
     "title1": "Siempre cerca",
     "title2": "tuyo",
     "description": "Estamos expandiendo nuestra red de distribución. Contactanos para conocer el punto más cercano.",
-    "button": "Contáctanos"
+    "button": "Contactanos"
   },
   "camioneta": {
     "title": "Comprometidos con la sostenibilidad Y la eficiencia en nuestros productos.",

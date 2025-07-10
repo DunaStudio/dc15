@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { useTranslations } from "next-intl";
+import { scrollToSection } from "@/lib/utils";
 
 export default function HeroSection() {
   const t = useTranslations("hero");
@@ -91,6 +92,7 @@ export default function HeroSection() {
         </div>
         <div className="overflow-hidden">
           <button
+            onClick={() => scrollToSection("contact")}
             ref={buttonRef}
             className="border border-neutral-500 rounded-full text-neutral-300 font-main text-[12px] md:text-[14px] lg:text-[16px] mt-4 px-6 py-4               hover:backdrop-blur-xl hover:border-white transition duration-300 cursor-pointer backdrop-blur-lg bg-white/10 translate-y-full opacity-0"
           >

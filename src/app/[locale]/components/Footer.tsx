@@ -2,19 +2,10 @@
 import Image from "next/image";
 import Logo from "@/assets/LogoDC15-Fondo.png";
 import { useTranslations } from "next-intl";
+import { scrollToSection } from "@/lib/utils";
 
 export default function Footer() {
   const t = useTranslations("footer");
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  };
 
   return (
     <footer className="bg-black text-white">

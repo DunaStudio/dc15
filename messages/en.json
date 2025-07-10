@@ -3,8 +3,7 @@
     "inicio": "HOME",
     "nosotros": "ABOUT US",
     "productos": "PRODUCTS",
-    "contacto": "CONTACT",
-    "algoMas": "SOMETHING ELSE?"
+    "contacto": "CONTACT"
   },
   "hero": {
     "title1": "Tires created to perform,",

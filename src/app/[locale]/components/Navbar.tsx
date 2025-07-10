@@ -8,6 +8,7 @@ import { useRef } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { useRouter, usePathname } from "../navigation";
 import { Link } from "../navigation";
+import { scrollToSection } from "@/lib/utils";
 
 export default function Navbar() {
   const t = useTranslations("navbar");
@@ -133,17 +134,6 @@ export default function Navbar() {
     window.location.href = newPath;
   };
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-    setIsMobileMenuOpen(false);
-  };
-
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
@@ -193,9 +183,6 @@ export default function Navbar() {
             >
               {t("contacto")}
             </button>
-          </li>
-          <li className="hover:text-primary cursor-pointer transition-colors">
-            {t("algoMas")}
           </li>
         </ul>
         <button
