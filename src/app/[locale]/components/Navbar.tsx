@@ -218,6 +218,7 @@ export default function Navbar() {
                       ref={addToMenuItems}
                       onClick={() => {
                         if (id) scrollToSection(id);
+                        setIsMobileMenuOpen(false);
                       }}
                       className="text-[16px] font-medium text-gray-700 hover:text-primary transition-colors outline-none w-full py-2"
                     >
