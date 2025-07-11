@@ -9,7 +9,6 @@ import { gsap } from "gsap";
 
 export default function BrandsSection() {
   const t = useTranslations("brands");
-  const locale = useLocale();
 
   const titleRefLineOne = useRef<HTMLHeadingElement>(null);
   const titleRefLineTwo = useRef<HTMLHeadingElement>(null);

@@ -6,6 +6,8 @@
 
   --color-primary: #1f699b;
   --color-secondary: #094574;
+
+  --breakpoint-3xl: 1920px;
 }
 
 .text-title {

@@ -135,12 +135,12 @@ export default function Navbar() {
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 flex flex-row justify-between items-center p-4 mx-auto max-w-7xl mt-5 text-[14px]">
-        <div className="flex items-center">
+        <div className="flex items-center ">
           <Link href={"/"}>
             <Image
               src={Logo || "/placeholder.svg"}
               alt="Logo"
-              className="w-[55px] h-[55px] lg:w-[100px] lg:h-[100px] 2xl:w-[120px] 2xl:h-[120px] transition-all duration-300"
+              className="w-[55px] h-[55px] lg:w-[100px] lg:h-[100px] 3xl:w-[120px] 3xl:h-[120px] transition-all duration-300 border-red-500 custom:border-yellow-500"
             />
           </Link>
         </div>
