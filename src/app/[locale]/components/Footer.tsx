@@ -22,7 +22,7 @@ export default function Footer() {
               <div className="text-sm text-center lg:text-left flex flex-col gap-2">
                 <p>Antonino Aberastain Sur 137 Piso: 2</p>
                 <p>J5400 San Juan</p>
-                <p>info@dc15neumaticos.com</p>
+                <p>info@dc15sas.com</p>
                 <p>0261115-681-6162</p>
               </div>
             </div>

@@ -45,12 +45,6 @@ export default function CarouselSection() {
       nombre: t("items.th900.name"),
       descripcion: t("items.th900.description"),
     },
-    {
-      id: 6,
-      imagen: Tyre1,
-      nombre: "Producto 6",
-      descripcion: "Descripción del producto 6.",
-    },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

@@ -6,14 +6,12 @@ import { Menu, X } from "lucide-react";
 import { gsap } from "gsap";
 import { useRef } from "react";
 import { useTranslations, useLocale } from "next-intl";
-import { useRouter, usePathname } from "../navigation";
 import { Link } from "../navigation";
 import { scrollToSection } from "@/lib/utils";
 
 export default function Navbar() {
   const t = useTranslations("navbar");
   const locale = useLocale();
-
   const [currentLanguage, setCurrentLanguage] = useState(
     locale === "es" ? "ESP" : "ENG"
   );
@@ -21,6 +19,7 @@ export default function Navbar() {
   const [shouldRenderMobileMenu, setShouldRenderMobileMenu] = useState(false);
   const menuPanelRef = useRef<HTMLDivElement>(null);
   const menuItemRefs = useRef<HTMLButtonElement[]>([]);
+
   menuItemRefs.current = [];
 
   const addToMenuItems = (el: HTMLButtonElement) => {
@@ -108,9 +107,7 @@ export default function Navbar() {
 
   const toggleLanguage = () => {
     const newLocale = locale === "es" ? "en" : "es";
-
     const currentPath = window.location.pathname;
-
     let newPath: string;
 
     if (currentPath === "/" || currentPath === "") {
@@ -124,7 +121,6 @@ export default function Navbar() {
     }
 
     newPath = newPath.replace(/\/+/g, "/");
-
     if (newPath.length > 1 && newPath.endsWith("/")) {
       newPath = newPath.slice(0, -1);
     }
@@ -141,9 +137,14 @@ export default function Navbar() {
       <nav className="fixed top-0 left-0 right-0 z-50 flex flex-row justify-between items-center p-4 mx-auto max-w-7xl mt-5 text-[14px]">
         <div className="flex items-center">
           <Link href={"/"}>
-            <Image src={Logo} alt="Logo" width={85} height={85} />
+            <Image
+              src={Logo || "/placeholder.svg"}
+              alt="Logo"
+              className="w-[55px] h-[55px] lg:w-[100px] lg:h-[100px] 2xl:w-[120px] 2xl:h-[120px] transition-all duration-300"
+            />
           </Link>
         </div>
+
         <ul className="hidden md:flex flex-row gap-6 text-gray-700 bg-white rounded-full py-4 px-8 mx-auto border border-gray-200 text-[12px]">
           <li className="hover:text-primary cursor-pointer transition-colors">
             <button
@@ -178,12 +179,14 @@ export default function Navbar() {
             </button>
           </li>
         </ul>
+
         <button
           onClick={toggleLanguage}
           className="bg-white text-gray-700 hover:text-primary hover:bg-gray-50 px-5 py-4 rounded-full font-medium transition-all duration-200 border border-gray-200 text-[12px] hidden md:block"
         >
           {currentLanguage}
         </button>
+
         <button
           className="md:hidden fixed right-3 z-50 p-3 bg-white rounded-full border border-primary"
           onClick={toggleMobileMenu}
@@ -195,6 +198,7 @@ export default function Navbar() {
           )}
         </button>
       </nav>
+
       {shouldRenderMobileMenu && (
         <div
           ref={menuPanelRef}
@@ -208,7 +212,6 @@ export default function Navbar() {
                   { label: t("nosotros"), id: "about" },
                   { label: t("productos"), id: "products" },
                   { label: t("contacto"), id: "contact" },
-                  { label: t("algoMas"), id: "" },
                 ].map(({ label, id }, i) => (
                   <li key={label}>
                     <button
