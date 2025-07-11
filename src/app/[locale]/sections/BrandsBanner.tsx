@@ -10,13 +10,6 @@ export default function BrandsSection() {
 
   const locale = useLocale();
 
-  console.log("Locale actual:", locale);
-  console.log("Brands translations:", {
-    title1: t("title1"),
-    title2: t("title2"),
-    description: t("description"),
-  });
-
   return (
     <section className="w-full py-12 md:py-16 bg-gray-50">
       <div className="container mx-auto px-4 md:px-6">
