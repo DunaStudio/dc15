@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import logoLorgian from "@/assets/images/lorgianLogo.png";
 import logoHaida from "@/assets/images/haidaLogo.png";
