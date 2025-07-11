@@ -24,7 +24,7 @@ export default function CamionetaSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 text-white py-8">
         <div className="text-center mb-16">
-          <h2 className="font-main text-[38px] md:text-[46px] lg:text-[52px] font-[400] leading-[1.2]">
+          <h2 className=" text-[24px] md:text-[30px] lg:text-[36px] font-main font-[400] leading-[1.2]">
             {t("title")}
           </h2>
           <p className="text-[14px] md:text-[18px] max-w-4xl mx-auto mt-5">
