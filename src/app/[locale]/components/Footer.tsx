@@ -47,9 +47,7 @@ export default function Footer() {
             >
               {t("productos")}
             </button>
-            <button className="hover:text-gray-300 transition-colors w-max cursor-pointer">
-              {t("otroCosa")}
-            </button>
+
             <button
               onClick={() => scrollToSection("contact")}
               className="hover:text-gray-300 transition-colors w-max cursor-pointer"

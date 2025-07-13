@@ -48,7 +48,7 @@ export default function HeroSection() {
     <section
       id="hero"
       ref={heroRef}
-      className="min-h-screen w-screen flex items-center p-10 flex-col gap-2 overflow-hidden relative justify-center"
+      className="min-h-screen flex items-center p-10 flex-col gap-2 overflow-hidden relative justify-center"
     >
       <video
         autoPlay
