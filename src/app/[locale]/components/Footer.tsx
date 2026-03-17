@@ -59,7 +59,15 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center mt-8 pt-4 border-t border-gray-800 text-sm">
           <p>{t("copyright")}</p>
           <p>
-            {t("developed")} <span className="font-bold">Duna Studio</span>
+            {t("developed")}{" "}
+            <a
+              href="https://www.instagram.com/dunastudiosj/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold hover:text-gray-400 transition-colors duration-300"
+            >
+              Duna Studio
+            </a>
           </p>
         </div>
       </div>
