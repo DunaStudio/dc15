@@ -24,9 +24,6 @@ export const metadata: Metadata = {
   title: "DC15",
   description:
     "DC15, compañía líder en soluciones de movilidad técnica, presenta Lorgian, su línea de neumáticos especializada para maquinaria agrícola, logística e industrial.Desarrollada bajo los más altos estándares de ingeniería, Lorgian nace como la evolución tecnológica de DC15, combinando robustez, eficiencia y rendimiento para los entornos de trabajo más exigentes.",
-  icons: {
-    icon: "/favicon.ico",
-  },
 };
 
 export function generateStaticParams() {
